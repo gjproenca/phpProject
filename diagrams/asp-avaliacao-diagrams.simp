@@ -22,10 +22,6 @@
     </entity-names>
     <entity-ids>
       <counter>
-        <item-type type-id="" type="AbstractElementGroup" />
-        <value>118</value>
-      </counter>
-      <counter>
         <item-type type-id="jsd-entity" type="Entity" />
         <value>2</value>
       </counter>
@@ -40,6 +36,10 @@
       <counter>
         <item-type type-id="erd-relationship" type="ErdRelation" />
         <value>5</value>
+      </counter>
+      <counter>
+        <item-type type-id="" type="AbstractElementGroup" />
+        <value>12</value>
       </counter>
     </entity-ids>
     <diagrams>
@@ -59,12 +59,13 @@
     <fields>
       <counter>
         <type>SoftwareIdeasModeler.Core.DiagramItems.Erd.ErdEntityAttribute</type>
-        <value>36</value>
+        <value>38</value>
       </counter>
     </fields>
   </counters>
   <alias-groups />
   <management uid="md-6b19fafd68cb4cdb8a196370ec1ddfb3" name="" task-id-sequence="0">
+    <working-schedule uid="ws-4aadeaaac7c545a2a2d9169643ace8ad" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
     <persons>
       <person id="Pb1aec4ea96ac4f1ab7f77fcf2fe3c7f0">
         <first-name />
@@ -74,6 +75,7 @@
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-428ff633d5f145c3b7af2c589a1ed421" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
       </person>
     </persons>
     <teams />
@@ -92,7 +94,7 @@
   </types>
   <items />
   <models>
-    <model id="p91cbc47a36814c45849428b80f73af5d_939466142" name="Model1" namespace="" order-index="1">
+    <model id="p91cbc47a36814c45849428b80f73af5d_939466142" name="Model1" namespace="" order-index="1" expanded="true">
       <meta>
         <authors>
           <author> </author>
@@ -105,45 +107,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="jsd-entity-structure" id="p4e31ec1bc3a645f6b3555f0088d49952_650164884" name="EntityStructureDiagram1" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
-        <style>
-          <background-color index="1" color="#FFFFFFFF" />
-          <background-color index="2" color="#FFFFFFFF" />
-          <background-type type="solid" />
-        </style>
-        <meta>
-          <authors>
-            <author> </author>
-          </authors>
-          <description />
-          <creation-date>06/21/2018 11:44:16</creation-date>
-          <change-date>06/21/2018 11:44:27</change-date>
-          <revision-count>0</revision-count>
-          <version />
-        </meta>
-        <abstract-items />
-        <layer id="f441033790824cd6b26d6b2274ad7f7e" name="Default" visible="true" enabled="true" locked="false" />
-      </diagram>
-      <diagram type="uml-object" id="p43ed68b60d1847ffae5536f13a5e1730_613200033" name="ObjectDiagram1" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
-        <style>
-          <background-color index="1" color="#FFFFFFFF" />
-          <background-color index="2" color="#FFFFFFFF" />
-          <background-type type="solid" />
-        </style>
-        <meta>
-          <authors>
-            <author> </author>
-          </authors>
-          <description />
-          <creation-date>06/21/2018 11:44:36</creation-date>
-          <change-date>06/21/2018 11:45:07</change-date>
-          <revision-count>0</revision-count>
-          <version />
-        </meta>
-        <abstract-items />
-        <layer id="1f59e08404034c05beb8f3e37088aac4" name="Default" visible="true" enabled="true" locked="false" />
-      </diagram>
-      <diagram type="entity-relationship" id="p1cd26cc7f89249dcad6d33af4f6ec323_378718198" name="EntityRelationshipDiagram1" order-index="3" overview-order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-354,10" zoom="0.8">
+      <diagram type="entity-relationship" id="p1cd26cc7f89249dcad6d33af4f6ec323_378718198" name="EntityRelationshipDiagram" order-index="3" overview-order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false" view-location="-209,-44" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -164,13 +128,13 @@
             <style class="default" />
             <entity description="" />
             <attributes>
-              <attribute uid="a1e5fad51a016477b9414a347034844ac903" cid="ELEM002" name="UserId" type="Integer" type-id="Uml.Integer" type-size="" foreign-key="false" primary-key="true" nullable="false" description="" default-value="" auto-increment="true">
+              <attribute uid="a1e5fad51a016477b9414a347034844ac903" cid="ELEM002" name="UserId" type="Integer" type-id="Uml.Integer" type-size="13" foreign-key="false" primary-key="true" nullable="false" description="" default-value="" auto-increment="true">
                 <style class="default" />
               </attribute>
-              <attribute uid="a9845c7de62034b05a7a99594fdff9aee528" cid="ELEM003" name="CountryId" type="Integer" type-id="Uml.Integer" type-size="" foreign-key="true" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
+              <attribute uid="a9845c7de62034b05a7a99594fdff9aee528" cid="ELEM003" name="CountryId" type="Integer" type-id="Uml.Integer" type-size="13" foreign-key="true" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
-              <attribute uid="ae23cd5297bfd410f95d855ab2adfd981434" cid="ELEM004" name="Name" type="String" type-id="Uml.String" type-size="70" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
+              <attribute uid="ae23cd5297bfd410f95d855ab2adfd981434" cid="ELEM004" name="Name" type="String" type-id="Uml.String" type-size="100" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
               <attribute uid="a4308c9d8135e46359b552cf949a63ee990" cid="ELEM005" name="Username" type="" type-id="" type-size="50" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
@@ -179,7 +143,7 @@
               <attribute uid="ab29d1ed851354eff8a03f02a572cb2c1496" cid="ELEM006" name="Password" type="String" type-id="Uml.String" type-size="250" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
-              <attribute uid="a1639d92c5cb5436e830234c54613bf56247" cid="ELEM007" name="Email" type="String" type-id="Uml.String" type-size="70" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
+              <attribute uid="a1639d92c5cb5436e830234c54613bf56247" cid="ELEM007" name="Email" type="String" type-id="Uml.String" type-size="100" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
               <attribute uid="a542a74b054494c1a93cbda2d57039c69450" cid="ELEM009" name="Admin" type="SmallInteger" type-id="Uml.SmallInteger" type-size="1" foreign-key="false" primary-key="false" nullable="false" description="" default-value="0" auto-increment="false">
@@ -222,17 +186,20 @@
             </attributes>
             <indexes />
           </item>
-          <item id="di625451493449527458" cid="ENT003" type="erd-entity" name="MessageFrontend" style-class="" visibility="package" change-tracking-state="added" creator="Pb1aec4ea96ac4f1ab7f77fcf2fe3c7f0" creation-date="06/21/2018 11:47:01">
+          <item id="di625451493449527458" cid="ENT003" type="erd-entity" name="MessageFrontEnd" style-class="" visibility="package" change-tracking-state="added" creator="Pb1aec4ea96ac4f1ab7f77fcf2fe3c7f0" creation-date="06/21/2018 11:47:01">
             <style class="default" />
             <entity description="" />
             <attributes>
               <attribute uid="ab6672f12ddde41d8827d2d533034afca591" cid="ELEM018" name="MessageId" type="Integer" type-id="Uml.Integer" type-size="70" foreign-key="false" primary-key="true" nullable="false" description="" default-value="" auto-increment="true">
                 <style class="default" />
               </attribute>
-              <attribute uid="a783eaa08dc5b4194848ed0581deff076857" cid="ELEM019" name="Name" type="String" type-id="Uml.String" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
+              <attribute uid="a783eaa08dc5b4194848ed0581deff076857" cid="ELEM019" name="Name" type="String" type-id="Uml.String" type-size="100" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
-              <attribute uid="a5913d3acf0cb4a42a19f6926faaee2d3654" cid="ELEM020" name="Email" type="String" type-id="Uml.String" type-size="" foreign-key="false" primary-key="false" nullable="false" description="" default-value="70" auto-increment="false">
+              <attribute uid="a5913d3acf0cb4a42a19f6926faaee2d3654" cid="ELEM020" name="Email" type="String" type-id="Uml.String" type-size="100" foreign-key="false" primary-key="false" nullable="false" description="" default-value="70" auto-increment="false">
+                <style class="default" />
+              </attribute>
+              <attribute uid="a6736dcb29b9c454c9d61ef7ca4a1965773" cid="ELEM036" name="Subject" type="String" type-id="Uml.String" type-size="50" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
               <attribute uid="a66b9f8b8a63841c0a2dcf96f5d296040310" cid="ELEM021" name="Message" type="String" type-id="Uml.String" type-size="300" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
@@ -258,6 +225,9 @@
                 <style class="default" />
               </attribute>
               <attribute uid="a577021e73d90485ba3115771709091ba591" cid="ELEM026" name="UserId" type="Integer" type-id="Uml.Integer" type-size="" foreign-key="true" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
+                <style class="default" />
+              </attribute>
+              <attribute uid="a3da8b81606d14cab9b17329d3dd00acd10" cid="ELEM037" name="Subject" type="String" type-id="Uml.String" type-size="50" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
                 <style class="default" />
               </attribute>
               <attribute uid="a69c2c705cf984a8cbec2e184e25b8e79138" cid="ELEM027" name="Message" type="String" type-id="Uml.String" type-size="300" foreign-key="false" primary-key="false" nullable="false" description="" default-value="" auto-increment="false">
@@ -344,7 +314,7 @@
             <erd-entity show-nullability="true" />
           </item>
           <item id="di162920052297255403" iid="604a109ddad94f0b867d85fed617bac8" creation-date="06/21/2018 12:34:58" order-index="5" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="-268" y1="340" x2="-268" y2="435" start-border-pos="0.624865419509896" end-border-pos="0.125134580490104" name-position="0,0">
+            <layout start-role-position="25,15" end-role-position="25,-15" line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="-268" y1="340" x2="-268" y2="435" start-border-pos="0.624865427609293" end-border-pos="0.125134572390707" name-position="0,0">
               <points>
                 <point x="-268" y="340" />
                 <point x="-268" y="435" />
@@ -362,7 +332,7 @@
             <relation from="di139423458967393510" from-iid="bf2425d77136479380ee20ce66212245" to="di811786344614307927" to-iid="82c31c9d155143ed8bae0b612fb563f1" />
           </item>
           <item id="di212937073477121157" iid="4cf5817d498f45de92eef36e3ce2bf64" creation-date="06/21/2018 12:41:20" order-index="7" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="-156" y1="340" x2="-85" y2="435" start-border-pos="0.506066769398976" end-border-pos="0.00669727751578331" name-position="0,0">
+            <layout start-role-position="25,15" end-role-position="25,-15" line-style="oblique" lock-start-point="false" lock-end-point="false" lock-to-fields="false" auto-path="" x1="-156" y1="340" x2="-85" y2="435" start-border-pos="0.506066785187674" end-border-pos="0.00669726812464292" name-position="0,0">
               <points>
                 <point x="-156" y="340" />
                 <point x="-85" y="435" />
