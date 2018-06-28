@@ -12,28 +12,23 @@
 
             <!--Form-->
             <div class="col-md-6">
-                <!--TODO: form-->
-                <form method="post" action="">
+                <form method="post" action="success.php">
                     <h1>Contacte-nos</h1>
                     <p>Obrigado pelo seu interesse, responderemos assim que pudermos</p>
                     <div class="form-group">
                         <label for="InputName">Nome</label>
-                        <asp:TextBox class="form-control" ID="textBoxName" runat="server" TextMode="SingleLine" placeholder="Introduza o seu nome" MaxLength="100"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Campo obrigatório!" ControlToValidate="textBoxName"></asp:RequiredFieldValidator>
+                        <!--TODO: name pattern-->
+                        <input class="form-control" name="textBoxName" type="text" placeholder="Introduza o seu nome" MaxLength="100" required>
                     </div>
                     <div class="form-group">
                         <label for="InputEmail1">Endereço de email</label>
-                        <asp:TextBox type="email" class="form-control" ID="textBoxEmail" runat="server" placeholder="Introduza o seu endereço de email" MaxLength="70"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Campo obrigatório!" ControlToValidate="textBoxEmail" CssClass="auto-style1"></asp:RequiredFieldValidator>
-                        &nbsp;&nbsp;&nbsp;
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Endereço de email inválido!" ControlToValidate="textBoxEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <input class="form-control" name="textBoxEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
                     </div>
                     <div class="form-group">
                         <label for="Textarea">Mensagem</label>
-                        <asp:TextBox class="form-control" ID="textBoxMessage" Rows="3" runat="server" placeholder="Introduza a sua mensagem, mínimo 20 carateres, máximo 250" TextMode="MultiLine"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Campo obrigatório!" ControlToValidate="textBoxMessage"></asp:RequiredFieldValidator>
+                        <textarea class="form-control" name="textBoxMessage" Rows="3" placeholder="Introduza a sua mensagem, mínimo 20 carateres, máximo 250" required></textarea>
                     </div>
-                    <asp:LinkButton class="btn btn-dark text-white" ID="submitContacts" runat="server" OnClick="submit_Click">Submeter</asp:LinkButton>
+                    <button class="btn btn-dark text-white" name="submitContacts" OnClick="submit_Click">Submeter</button>
                     <input class="btn btn-dark text-white float-sm-right" id="resetContacts" type="reset" value="Limpar" />
                 </form>
             </div>
