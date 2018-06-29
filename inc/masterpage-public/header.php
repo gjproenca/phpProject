@@ -9,7 +9,7 @@
         <link type="text/css" href="./../resources/bootstrap-4-1-1-dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!--My CSS-->
-        <link type="text/css" href="./../resources/css/font-awesome-4-7-0/css/font-awesome.min.css" rel="stylesheet">
+        <link type="text/css" href="./../resources/font-awesome-4-7-0/css/font-awesome.min.css" rel="stylesheet">
 
         <title>Webware</title>
     </head>
