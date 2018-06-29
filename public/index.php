@@ -1,4 +1,4 @@
-<?php include './../inc/masterpage-public/header.php'; ?>
+<?php include './../inc/masterpage-public/header.php';?>
 
 <div class="py-5 text-center" style="background-image: url(./../resources/images/warehouse.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;">
     <div class="container py-5">
@@ -41,4 +41,4 @@
     </div>
 </div>
 
-<?php include './../inc/masterpage-public/footer.php'; ?>
+<?php include './../inc/masterpage-public/footer.php';?>

@@ -15,9 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               Falha na ligação à base de dados, por favor tente mais tarde.
             </div>';
     } else {
+        //SQL query statement
         $sql = "INSERT INTO `messagepublic` (`Name`,`Email`,`Subject`,`Message`)
             VALUES ('$name','$subject','$email','$message')";
 
+        //SQL database query
         if ($conn->query($sql) === true) {
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
               Mensagem enviada com sucesso!
@@ -62,7 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="form-group">
                         <label for="InputEmail1">Endereço de email</label>
-                        <input class="form-control" name="inputEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
+                        <input class="form-control" name="inputEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70" 
+                        pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
                     </div>
                     <div class="form-group">
                         <label for="Textarea">Mensagem</label>

@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="./../public/contacts.php"><i class="fa fa-envelope"></i> Contactos</a>
                             </li>
                         </ul>
-                        <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signin" href="./../public/signin.php"><i class="fa fa-sign-in"></i> Entrar</a>
+                        <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signin" href="~/frontend/signin.aspx"><i class="fa fa-sign-in"></i> Entrar</a>
                         <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signup" href="~/frontend/signup.aspx"><i class="fa fa-user-plus"></i> Registar</a>
                     </div>
                 </div>
