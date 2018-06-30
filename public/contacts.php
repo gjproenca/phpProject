@@ -1,5 +1,4 @@
 <?php
-
 include './../inc/masterpage-public/header.php';
 include '../inc/connection.php';
 
@@ -11,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check connection
     if ($conn->connect_error) {
-        echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+        echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
               Falha na ligação à base de dados, por favor tente mais tarde.
             </div>';
     } else {
@@ -21,20 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //SQL database query
         if ($conn->query($sql) === true) {
+            // TODO: add fade out or slide up aniamtion with jquery
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
               Mensagem enviada com sucesso!
             </div>';
         } else {
-            echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
               Falha ao enviar a mensagem!
             </div>';
             //echo "Error: " . $sql . "<br>" . $conn->error; //to check query error
         }
+
+        $conn->close();
     }
-
-    $conn->close();
 }
-
 ?>
 
 <div class="py-5 bg-primary text-white">
@@ -64,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="form-group">
                         <label for="InputEmail1">Endereço de email</label>
-                        <input class="form-control" name="inputEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70" 
+                        <input class="form-control" name="inputEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70"
                         pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
                     </div>
                     <div class="form-group">
