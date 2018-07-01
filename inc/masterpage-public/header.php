@@ -31,9 +31,9 @@
                                 <i class="fa fa-envelope"></i> Contactos</a>
                         </li>
                     </ul>
-                    <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signin" href="./../public/sign-in.php">
+                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../public/sign-in.php">
                         <i class="fa fa-sign-in"></i> Entrar</a>
-                    <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signup" href="./../public/sign-up.php">
+                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../public/sign-up.php">
                         <i class="fa fa-user-plus"></i> Registar</a>
                 </div>
             </div>

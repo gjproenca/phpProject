@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include './../inc/masterpage-public/header.php';
 include '../inc/connection.php';
 
@@ -14,11 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashPassword = hash('sha512', $postPassword);
 
         // Get user data
-        $sql = "SELECT `Username`, `Password`, `Admin`, `Active` FROM `user` WHERE `Username` LIKE '$postUsername'";
+        $sql = "SELECT `UserId` ,`Username`, `Password`, `Admin`, `Active` FROM `user` WHERE `Username` LIKE '$postUsername'";
         @$query = $conn->query($sql);
 
         $result = $query->fetch_assoc();
 
+        $resultUserId = $result['UserId'];
         $resultUsername = $result['Username'];
         $resultPassword = $result['Password'];
         $resultAdmin = $result['Admin'];
@@ -43,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             if ($resultActive == 1) {
-                echo 'user';
-                // TODO: session + redirect
+                $_SESSION['userId'] = $resultUserId;
+                header('Location: ./../frontend/index.php');
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                     Conta de utilizador não ativa</div>';

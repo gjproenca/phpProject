@@ -5,16 +5,15 @@
                     <h2 class="mb-4 text-secondary">Webware</h2>
                     <p class="text-white">Aceda aos seus ficheiros a qualquer altura, em qualquer lugar</p>
                 </div>
+                <!-- TODO: link paths -->
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <a href="/default.aspx" class="text-white">Início</a>
+                        <a href="/frontend/user-area.aspx" class="text-white">Início</a>
                         <br>
-                        <a href="/frontend/signin.aspx" class="text-white">Entrar</a>
+                        <a href="/frontend/user-account.aspx" class="text-white">Conta</a>
                         <br>
-                        <a href="/frontend/signup.aspx" class="text-white">Registar</a>
-                        <br>
-                        <a href="/frontend/contact.aspx" class="text-white">Contactos</a>
+                        <a href="/frontend/user-contact.aspx" class="text-white">Contactos</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">
@@ -24,12 +23,12 @@
                             <i class="fa d-inline  text-secondary fa-phone"></i> 213 432 534</a>
                     </p>
                     <p>
-                        <a href="mailto:webwarehouse13@gmail.com" class="text-white"><i class="fa fa-at"></i> webwarehouse13@gmail.com</a>
+                        <a href="mailto:webwarehouse13@gmail.com" class="text-white">
+                            <i class="fa fa-at"></i> webwarehouse13@gmail.com</a>
                     </p>
                     <p>
                         Av. Marquês de Tomar 91,
-                        <br />
-                        1069-181 Lisboa, 1050-032 Lisboa
+                        <br /> 1069-181 Lisboa, 1050-032 Lisboa
                     </p>
                 </div>
             </div>
@@ -48,4 +47,5 @@
 <script type="text/javascript" src="./../resources/bootstrap-4-1-1-dist/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="./../resources/bootstrap-4-1-1-dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

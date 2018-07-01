@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["userId"])) {
+    // TODO: redirect to error page
+    header('Location: ./../index.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -18,18 +27,24 @@
 
             <nav class="navbar navbar-expand-md bg-primary navbar-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="./../public/index.php">Webware</a>
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
+                    <a class="navbar-brand" href="./../../frontend/index.php">Webware</a>
+                    <a class="navbar-toggler navbar-toggler-right" type="a" data-toggle="collapse" data-target="#navbar2SupportedContent">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
+                    </a>
                     <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="./../public/contacts.php"><i class="fa fa-envelope"></i> Contactos</a>
+                                <a class="nav-link" href="./../../frontend/index.php"><i class="fa fa-file"></i> Ficheiros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./../../frontend/edit-account.php"><i class="fa fa-user"></i> Conta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./../../frontend/contact-us.php"><i class="fa fa-envelope"></i> Contactos</a>
                             </li>
                         </ul>
-                        <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signin" href="~/frontend/signin.aspx"><i class="fa fa-sign-in"></i> Entrar</a>
-                        <a class="btn navbar-btn btn-dark ml-2 text-white" ID="signup" href="~/frontend/signup.aspx"><i class="fa fa-user-plus"></i> Registar</a>
+                        &nbsp;
+                        <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../frontend/logout.php"><i class="fa fa-sign-out"></i> Sair</a>
                     </div>
                 </div>
             </nav>
