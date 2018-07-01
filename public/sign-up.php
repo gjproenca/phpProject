@@ -84,7 +84,7 @@ $conn->close();
 
                 <!-- Form -->
                 <div class="card-body">
-                    <h1 class="mb-4">Registar</h1>
+                    <h1 class="mb-4 text-center text-white">Registar</h1>
                     <form method="POST" action="">
                         <div class="form-group">
                             <label>Nome</label>
@@ -121,7 +121,8 @@ $conn->close();
                         <div class="form-group">
                             <label>Endereço de email</label>
                             <input class="form-control" id="inputEmail" name="inputEmail" placeholder="Introduza o seu endereço de email" type="email"
-                                pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="<?php if (isset($postEmail)) {echo $postEmail;}?>" required>
+                                pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="<?php if (isset($postEmail)) {echo $postEmail;}?>"
+                                required>
                             <small class="form-text text-muted">
                                 O endereço de email tem de ter pelo menos um '@' e um '.'
                             </small>
@@ -132,7 +133,9 @@ $conn->close();
 
                                 <!-- Populate dropdownlist with countries -->
                                 <?php while ($postCountry = $resultCountries->fetch_assoc()): ?>
-                                    <option><?php echo $postCountry['FormattedName']; ?></option>
+                                <option>
+                                    <?php echo $postCountry['FormattedName']; ?>
+                                </option>
                                 <?php endwhile;?>
 
                             </select>
@@ -140,11 +143,19 @@ $conn->close();
                                 Escolha o seu país
                             </small>
                         </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
+                                <label class="form-check-label" for="invalidCheck3">
+                                    Declaro que li e aceito os Termos e Condições
+                                </label>
+                            </div>
+                        </div>
                         <button class="btn btn-dark text-white" id="submit" name="submit" type="submit">Submeter</button>
                         <input class="btn btn-dark text-white float-sm-right" name="reset" id="reset" type="reset" value="Limpar" />
                         <br />
                         <br />
-                        <a class="btn btn-dark text-white float-sm-right" id="forgotPassword" name="forgotPassword" href="TODO: forgot-password.aspx">Recuperar senha</a>
+                        <a class="btn btn-dark text-white float-sm-right" id="forgotPassword" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
                     </form>
                 </div>
             </div>

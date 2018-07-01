@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- Form -->
                     <div class="card-body">
-                        <h1 class="mb-4">Entrar</h1>
+                        <h1 class="mb-4 text-center text-white">Entrar</h1>
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label>Nome de utilizador</label>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input class="btn btn-dark text-white float-sm-right" name="resetSignin" type="reset" value="Limpar" />
                             <br />
                             <br />
-                            <a class="btn btn-dark text-white float-sm-right" name="forgotPassword" href="TODO:./forgot-password.php">Recuperar senha</a>
+                            <a class="btn btn-dark text-white float-sm-right" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
                         </form>
                     </div>
                 </div>

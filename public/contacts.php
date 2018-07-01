@@ -46,8 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!--Form-->
             <div class="col-md-6">
                 <form method="POST" action="">
-                    <h1>Contacte-nos</h1>
-                    <p>Obrigado pelo seu interesse, responderemos assim que pudermos</p>
+                    <h1 class="mb-4 text-center text-white">Contactos</h1>
                     <div class="form-group">
                         <label for="InputName">Nome</label>
                         <input class="form-control" name="inputName" type="text" placeholder="Introduza o seu nome" MaxLength="100"
