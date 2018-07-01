@@ -7,7 +7,7 @@ $sqlCountries = "SELECT `FormattedName` FROM `country`";
 @$resultCountries = $conn->query($sqlCountries);
 
 if (!isset($resultCountries)) {
-echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+    echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
     Falha ao obter a lista de países, por favor tente mais tarde</div>';
 }
 
@@ -18,43 +18,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postConfirmPassword = $_POST["inputConfirmPassword"];
     $postEmail = $_POST["inputEmail"];
     $postCountry = $_POST["dropdownListCountries"];
-    
-    $hashPassword = hash('sha512',$password);
+
+    $hashPassword = hash('sha512', $password);
 
     if ($conn->connect_error) {
         echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
             Falha na ligação à base de dados, por favor tente mais tarde</div>';
     } else {
-        if ($postPassword !== $postConfirmPassword) {
-            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-            Os campos senha não coincidem</div>';
-        } else {
-            // Get country id
-            $sqlCountryId = "SELECT `CountryId` FROM `country` WHERE `FormattedName` LIKE '$postCountry'";
-            @$queryCountryId = $conn->query($sqlCountryId);
+        // Get country id
+        $sqlCountryId = "SELECT `CountryId` FROM `country` WHERE `FormattedName` LIKE '$postCountry'";
+        @$queryCountryId = $conn->query($sqlCountryId);
 
-            $resultCountryIdTemp = $queryCountryId->fetch_assoc();
-            $resultCountryId = $resultCountryIdTemp['CountryId'];
+        $resultCountryIdTemp = $queryCountryId->fetch_assoc();
+        $resultCountryId = $resultCountryIdTemp['CountryId'];
 
-            // Regiter query
-            // TODO: add check existing for email
-            $sqlRegisto = "INSERT INTO `user` (`CountryId`,`Name`,`Username`,`Password`,`Email`)
+        // Check if email exists
+        $sqlEmail = "SELECT `Email` FROM `user` WHERE `Email` LIKE '$postEmail'";
+        @$querySqlEmail = $conn->query($sqlEmail);
+
+        // Regiter query
+        $sqlRegisto = "INSERT INTO `user` (`CountryId`,`Name`,`Username`,`Password`,`Email`)
                         VALUES ('$resultCountryId','$postName','$postUsername','$hashPassword','$postEmail')";
 
-            if ($conn->query($sqlRegisto) === true) {
-                // TODO: add fade out or slide up aniamtion with jquery
-                echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
-                            Registo efetuado com sucesso</div>';
-            } else {
-                echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                            Falha ao Registar</div>';
-                // echo "Error: " . $sql . "<br>" . $conn->error; //to check query error
-            }
+        if ($postPassword !== $postConfirmPassword) {
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                Os campos senha não coincidem</div>';
+        } else if ($querySqlEmail === false) {
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                Falha ao verificar email, por favor tente mais tarde</div>';
+        } else if ($querySqlEmail->num_rows > 0) {
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+        } else if ($conn->query($sqlRegisto) === true) {
+            // TODO: add fade out or slide up aniamtion with jquery
+            echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+                Registo efetuado com sucesso</div>';
+            // echo "Error: " . $sql . "<br>" . $conn->error; // to check query error
+        } else {
+            echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+                Falha ao efetuar o registo, por favor tente mais tarde</div>';
         }
     }
-
-    $conn->close();
 }
+
+$conn->close();
 ?>
 
 <div class="py-5 bg-primary text-white">
@@ -109,12 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label for="dropdownListCountries">País</label>
-                            <select class="form-control" id="dropdownListCountries" name="dropdownListCountries" required>  
+                            <select class="form-control" id="dropdownListCountries" name="dropdownListCountries" required>
 
                                 <!-- Populate dropdownlist with countries -->
                                 <?php while ($postCountry = $resultCountries->fetch_assoc()): ?>
                                     <option><?php echo $postCountry['FormattedName']; ?></option>
-                                <?php endwhile; ?>
+                                <?php endwhile;?>
 
                             </select>
                             <small class="form-text text-muted">
