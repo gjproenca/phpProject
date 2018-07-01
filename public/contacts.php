@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check connection
     if ($conn->connect_error) {
         echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-            Falha na ligação à base de dados, por favor tente mais tarde.</div>';
+            Falha na ligação à base de dados, por favor tente mais tarde</div>';
     } else {
         //SQL query statement
         $sql = "INSERT INTO `messagepublic` (`Name`,`Email`,`Subject`,`Message`)
@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql) === true) {
             // TODO: add fade out or slide up aniamtion with jquery
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
-                Mensagem enviada com sucesso!</div>';
+                Mensagem enviada com sucesso</div>';
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Falha ao enviar a mensagem!</div>';
+                Falha ao enviar a mensagem</div>';
             //echo "Error: " . $sql . "<br>" . $conn->error; //to check query error
         }
 
@@ -50,25 +50,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>Obrigado pelo seu interesse, responderemos assim que pudermos</p>
                     <div class="form-group">
                         <label for="InputName">Nome</label>
-                        <!--TODO: name pattern-->
-                        <input class="form-control" name="inputName" type="text" placeholder="Introduza o seu nome" MaxLength="100" required>
+                        <input class="form-control" name="inputName" type="text" placeholder="Introduza o seu nome" MaxLength="100"
+                        pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$" required>
+                        <small class="form-text text-muted">
+                            O nome tem de conter no mínimo 3 carateres
+                        </small>
                     </div>
                     <div class="form-group">
                         <label for="InputName">Assunto</label>
-                        <!--TODO: subject pattern-->
-                        <input class="form-control" name="inputSubject" type="text" placeholder="Introduza o assunto" MaxLength="70" required>
+                        <input class="form-control" name="inputSubject" type="text" placeholder="Introduza o assunto" MaxLength="70"
+                        pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$" required>
+                        <small class="form-text text-muted">
+                            O assunto tem de conter no mínimo 3 carateres
+                        </small>
                     </div>
                     <div class="form-group">
                         <label for="InputEmail1">Endereço de email</label>
                         <input class="form-control" name="inputEmail" type="email" placeholder="Introduza o seu endereço de email" MaxLength="70"
                         pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
+                        <small class="form-text text-muted">
+                            O endereço de email tem de ter pelo menos um '@' e um '.'
+                        </small>
                     </div>
                     <div class="form-group">
                         <label for="Textarea">Mensagem</label>
-                        <textarea class="form-control" name="textAreaMessage" Rows="3" placeholder="Introduza a sua mensagem, mínimo 20 carateres, máximo 250" required></textarea>
+                        <textarea class="form-control" name="textAreaMessage" Rows="3" placeholder="Introduza a sua mensagem, mínimo 20 carateres, máximo 250"
+                        pattern="^[A-Za-zÀ-Úà-ú]{9,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$" maxlength="250" required></textarea>
+                        <small class="form-text text-muted">
+                            A mensagem tem de conter no mínimo 10 carateres e no máximo 250 carateres
+                        </small>
                     </div>
                     <button class="btn btn-dark text-white" name="submitContacts" OnClick="submit_Click">Submeter</button>
-                    <input class="btn btn-dark text-white float-sm-right" id="resetContacts" type="reset" value="Limpar" />
+                    <input class="btn btn-dark text-white float-sm-right" id="resetContacts" type="reset" value="Limpar">
                 </form>
             </div>
 
