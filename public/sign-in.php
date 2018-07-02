@@ -60,7 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="py-5 bg-primary text-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-3"></div>
+            <div class="col-md-3">
+            </div>
             <div class="col-md-6">
                 <div class="p-5 card text-white bg-primary border-secondary">
 
@@ -70,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label>Nome de utilizador</label>
-                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$" required>
+                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$"
+                                value="<?php if (isset($postUsername)) {echo $postUsername;} ?>" required>
                             </div>
                             <small class="form-text text-muted">
                                 O nome tem de conter no mínimo 3 carateres
