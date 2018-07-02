@@ -62,25 +62,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-md-3">
             </div>
+
+            <!-- Form -->
             <div class="col-md-6">
                 <div class="p-5 card text-white bg-primary border-secondary">
-
-                    <!-- Form -->
                     <div class="card-body">
                         <h1 class="mb-4 text-center text-white">Entrar</h1>
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label>Nome de utilizador</label>
-                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$"
-                                value="<?php if (isset($postUsername)) {echo $postUsername;} ?>" required>
+                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" 
+                                    pattern="^\w{8,}$" value="<?php if (isset($postUsername)) {echo $postUsername;}?>" required>
                             </div>
                             <small class="form-text text-muted">
                                 O nome tem de conter no mínimo 3 carateres
                             </small>
                             <div class="form-group">
                                 <label>Senha</label>
-                                <input class="form-control" name="inputPassword" placeholder="Mínimo 8 carateres" type="password" pattern="^[^\s].{6,}[^\s]$"
-                                    required>
+                                <input class="form-control" name="inputPassword" placeholder="Mínimo 8 carateres" type="password" 
+                                    pattern="^[^\s].{6,}[^\s]$" required>
                                 <small class="form-text text-muted">
                                     A senha tem de conter no mínimo 8 carateres
                                 </small>
