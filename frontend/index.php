@@ -1,5 +1,5 @@
-<?php include '../inc/masterpage-frontend/header.php' ?>
+<?php include './../inc/masterpage-frontend/header.php' ?>
 
 frontend
 
-<?php include '../inc/masterpage-frontend/footer.php' ?>
+<?php include './../inc/masterpage-frontend/footer.php' ?>
