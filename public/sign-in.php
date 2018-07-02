@@ -71,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label>Nome de utilizador</label>
-                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$" required>
+                                <input class="form-control" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$"
+                                value="<?php if (isset($postUsername)) {echo $postUsername;} ?>" required>
                             </div>
                             <small class="form-text text-muted">
                                 O nome tem de conter no mínimo 3 carateres

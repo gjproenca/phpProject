@@ -2,15 +2,6 @@
 include './../inc/masterpage-public/header.php';
 include '../inc/connection.php';
 
-// Populate country list query
-$sqlCountries = "SELECT `FormattedName` FROM `country`";
-@$resultCountries = $conn->query($sqlCountries);
-
-if (!isset($resultCountries)) {
-    echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-    Falha ao obter a lista de países, por favor tente mais tarde</div>';
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postName = $_POST["inputName"];
     $postUsername = $_POST["inputUsername"];
@@ -67,10 +58,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // TODO: send welcome email
         } else {
-            echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao efetuar o registo, por favor tente mais tarde</div>';
         }
     }
+}
+
+// Populate country list query
+$sqlCountries = "SELECT `FormattedName` FROM `country`";
+@$resultCountries = $conn->query($sqlCountries);
+
+if (!isset($resultCountries)) {
+    echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+    Falha ao obter a lista de países, por favor tente mais tarde</div>';
 }
 
 $conn->close();
