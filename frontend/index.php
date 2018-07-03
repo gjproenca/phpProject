@@ -5,10 +5,14 @@ include './../inc/connection.php';
 $userId = $_SESSION['userId'];
 
 // Upload files to folder and perform INSERT query on database
+// Max file size 2MB, max files on single post 20
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_FILES['inputFiles'])) {
         foreach ($_FILES['inputFiles']['name'] as $file => $name) {
             $path = date('dmY-His' . time()) . mt_rand() . '-' . $name;
+
+            // FIXME: letting only upload 2MB
+            // echo file_size($_FILES['inputFiles']['size']);
 
             try {
                 if (move_uploaded_file($_FILES['inputFiles']['tmp_name'][$file], './../uploads/' . $path)) {
@@ -17,17 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $conn->query($sqlFiles);
                 }
             } catch (Exception $e) {
-                //echo $e;
+                echo $e;
             }
         }
     }
 }
 
 // Set active to 0 in databse
-// TODO: might only need id to set files to deative, check table filling href function
-if (isset($_GET['id'])) {
+if (isset($_GET['uploadId'])) {
     // if (unlink('./../uploads/' . $_GET['name'])) {
-    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = '" . $_GET['id'] . "'";
+    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = '" . $_GET['uploadId'] . "'";
     $resultTableFiles = $conn->query($sqlTableFiles);
 
     header('Location: index.php');
@@ -35,7 +38,8 @@ if (isset($_GET['id'])) {
 }
 
 // Variables to populate table with files
-$sqlTableFiles = "SELECT `UploadId`, `FileName` , `Path` FROM `upload` WHERE `Active` = 1";
+$sqlTableFiles = "SELECT `UploadId`, `FileName` , `Path` FROM `upload`
+                    WHERE `Active` = 1 ORDER BY `UploadId` DESC";
 $resultTableFiles = $conn->query($sqlTableFiles);
 
 $conn->close();
@@ -57,10 +61,13 @@ $conn->close();
         <!-- Populate table with files -->
         <?php while ($rowTableFiles = $resultTableFiles->fetch_assoc()): ?>
             <tr>
-                <td><?php echo $rowTableFiles['FileName'] ?></td>
+                <td width="70%">
+                    <?php echo $rowTableFiles['FileName'] ?>
+                </td>
                 <td>
                     <!-- Sending file name ('name') and upload id ('id')  -->
-                    <a href="?name=<?php echo $rowTableFiles['Path']; ?>&id=<?php echo $rowTableFiles['UploadId'] ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?php echo './../uploads/' . $rowTableFiles['Path'] ?>" class="btn btn-success" download> Descarregar</a>
+                    <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         <?php endwhile;?>
