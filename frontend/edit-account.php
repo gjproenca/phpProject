@@ -200,6 +200,7 @@ $conn->close();
                                         </option>
 
                                     <!-- Populate dropdownlist with countries -->
+                                    <!-- TODO: change post counry name and verify -->
                                     <?php while ($postCountry = $resultCountries->fetch_assoc()): ?>
                                     <option>
                                         <?php echo $postCountry['FormattedName']; ?>
