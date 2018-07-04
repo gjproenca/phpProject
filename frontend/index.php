@@ -4,6 +4,8 @@ include './../inc/connection.php';
 
 $userId = $_SESSION['userId'];
 
+if(isset($_POST['inputSearch'])) $inputSearch = $_POST['inputSearch'];
+
 // Upload files to folder and perform INSERT query on database
 // Max file size 2MB, max files on single post 20
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileName = $_FILES['inputFile']['name'];
         $path = date('dmY-His' . time()) . mt_rand() . '-' . $fileName;
 
-        if (($_FILES['inputFile']['error'] == UPLOAD_ERR_OK) && ($_FILES['inputFile']['error'] != UPLOAD_ERR_INI_SIZE)) {
+        if (($_FILES['inputFile']['error'] == UPLOAD_ERR_OK) 
+                && ($_FILES['inputFile']['error'] != UPLOAD_ERR_INI_SIZE)) {
             if (move_uploaded_file($_FILES['inputFile']['tmp_name'], './../uploads/' . $path)) {
                 $sqlFiles = "INSERT INTO `upload` (`UserId`,`FileName`,`Path`)
                                     VALUES ($userId,'$fileName','$path')";
@@ -47,15 +50,21 @@ $conn->close();
 <div class="py-5 bg-primary text-white">
     <div class="container">
         <div class="row">
-            <!-- Form -->
-            <div class="col-md-12">
-                <form method="POST" enctype="multipart/form-data">
+            <!-- Upload form -->
+            <div class="col-md-12 mb-5">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <input type="file" name="inputFile">
                     <input type="submit" value="Upload">
                 </form>
             </div>
 
+            <!-- FIXME: subimiting both forms at once -->
+            <!-- Search form -->
             <div class="col-md-12 mb-5">
+                <form method="POST" action="" id="formSearch">
+                    <input type="text" id="inputSearch" value="<?php if(isset($_POST['inputSearch'])) echo $inputSearch; ?>">
+                    <input type="submit" value="Upload">
+                </form>
             </div>
 
             <div class="col-md-12">
@@ -65,9 +74,7 @@ $conn->close();
                     <table class="table table-hover table-dark">
                         <thead class="thead-light">
                             <tr>
-                                <!-- TODO: see if text-center in file looks better or not -->
-                                <th class="text-center">Ficheiro</th>
-                                <th class="text-center" colspan="2">Acção</th>
+                                <th class="text-center" colspan="3">Ficheiros</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,3 +102,12 @@ $conn->close();
 </div>
 
 <?php include './../inc/masterpage-frontend/footer.php'?>
+
+<script>
+i = 0;
+$(document).ready(() => {
+    $("#inputSearch").keydown(() => {
+        $("#formSearch").submit();
+    });
+});
+</script>
