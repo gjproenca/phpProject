@@ -7,34 +7,34 @@ $userId = $_SESSION['userId'];
 // Upload files to folder and perform INSERT query on database
 // Max file size 2MB, max files on single post 20
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_FILES['inputFiles'])) {
-        foreach ($_FILES['inputFiles']['name'] as $file => $name) {
-            $path = date('dmY-His' . time()) . mt_rand() . '-' . $name;
+    if (isset($_FILES['inputFile'])) {
+        $fileName = $_FILES['inputFile']['name'];
+        $path = date('dmY-His' . time()) . mt_rand() . '-' . $fileName;
 
-            // FIXME: letting only upload 2MB
-            // echo file_size($_FILES['inputFiles']['size']);
-
+        if (($_FILES['inputFile']['size'] < 2100000) && ($_FILES['inputFile']['error'] == 0)) {
             try {
-                if (move_uploaded_file($_FILES['inputFiles']['tmp_name'][$file], './../uploads/' . $path)) {
-                    $sqlFiles = "INSERT INTO `upload` (`UserId`,`FileName`,`Path`) VALUES ($userId,'$name','$path')";
+                if (move_uploaded_file($_FILES['inputFile']['tmp_name'], './../uploads/' . $path)) {
+                    $sqlFiles = "INSERT INTO `upload` (`UserId`,`FileName`,`Path`) 
+                                    VALUES ($userId,'$fileName','$path')";
 
                     $conn->query($sqlFiles);
                 }
             } catch (Exception $e) {
                 echo $e;
             }
+        } else {
+            echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                Não foi possível carregar o ficheiro, tamanho máximo de carregamento 2MB (versão de teste)</div>';
         }
     }
 }
 
 // Set active to 0 in databse
 if (isset($_GET['uploadId'])) {
-    // if (unlink('./../uploads/' . $_GET['name'])) {
     $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = '" . $_GET['uploadId'] . "'";
     $resultTableFiles = $conn->query($sqlTableFiles);
 
     header('Location: index.php');
-    // }
 }
 
 // Variables to populate table with files
@@ -46,7 +46,7 @@ $conn->close();
 ?>
 
 <form method="POST" enctype="multipart/form-data">
-    <input type="file" name="inputFiles[]" multiple>
+    <input type="file" name="inputFile">
     <input type="submit" value="Upload">
 </form>
 
