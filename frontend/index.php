@@ -80,7 +80,8 @@ $conn->close();
             <!-- Search form -->
             <div class="col-md-12 mb-5">
                 <form method="POST" action="" id="formSearch">
-                    <input class="form-control text-center" type="text" id="inputSearch" name="inputSearch" value="<?php
+                    <input class="form-control text-center" type="text" id="inputSearch" name="inputSearch" 
+                        value="<?php
                                 // Setting serchbox to empty if theres no chars in it 
                                 if (isset($_POST['inputSearch'])) { 
                                     if($inputSearch == '%'){
@@ -112,10 +113,12 @@ $conn->close();
                                 </td>
                                 <td>
                                     <!-- Sending file name ('name') and upload id ('id')  -->
-                                    <a href="<?php echo './../uploads/' . $rowTableFiles['Path'] ?>" class="btn btn-success" download> Descarregar</a>
+                                    <a href="<?php echo './../uploads/' . $rowTableFiles['Path'] ?>"
+                                        class="btn btn-success" download> Descarregar</a>
                                 </td>
                                 <td>
-                                    <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>" class="btn btn-danger">Eliminar</a>
+                                    <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>"
+                                        class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
@@ -128,7 +131,8 @@ $conn->close();
 </div>
 
 <script>
-    var delay = (function () {
+    // creater timer function
+    var delay = (() => {
         var timer = 0;
         return function (callback, ms) {
             clearTimeout(timer);
@@ -136,6 +140,7 @@ $conn->close();
         };
     })();
 
+    // submit form after user finished pressing keys for 1 second
     $(document).ready(() => {
         $("#inputSearch").keyup(() => {
             delay(function () {
