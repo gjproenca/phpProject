@@ -12,11 +12,17 @@
     <!--My CSS-->
     <link type="text/css" href="./../resources/font-awesome-4-7-0/css/font-awesome.min.css" rel="stylesheet">
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="./../resources/bootstrap-4-1-1-dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./../resources/bootstrap-4-1-1-dist/js/bootstrap.bundle.min.js"></script>
+
     <title>Webware</title>
 </head>
 
 <body>
-    <div> <!--body container-->
+    <div>
+        <!--body container-->
 
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
