@@ -51,11 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
         } else if ($conn->query($sqlRegisto) === true) {
-            // TODO: add fade out or slide up aniamtion with jquery
-            echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
-                Registo efetuado com sucesso</div>';
-
-            // FIXME: send welcome email
             include './../resources/PHPMailer/PHPMailerAutoload.php';
             $mail = new PHPMailer;
             $mail->isSMTP();
@@ -74,19 +69,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host = 'smtp.gmail.com';
             $mail->Port = 465;
             $mail->isHTML(true);
-            $mail->Username = 'contatestepsi@gmail.com';
-            $mail->Password = 'psi121415';
-            $mail->setFrom('contatestepsi@gmail.com', 'Conta teste');
-            $mail->addReplyTo('contatestepsi@gmail.com', 'Conta teste');
-            $mail->Subject = 'test subject';
-            $mail->Body = 'test message';
+            $mail->Username = 'webwarehouse13@gmail.com';
+            $mail->Password = 'Ab-123456';
+            $mail->setFrom('webwarehouse13@gmail.com', 'Webware');
+            $mail->addReplyTo('webwarehouse13@gmail.com', 'Webware');
+            $mail->Subject = 'Bem Vindo';
+            $mail->Body = 'Obrigado pelo seu registo, 
+            <br />
+            <br />
+            Por favor aguarde até que um dos nossos administradores ative a sua conta.
+            <br />
+            <br />
+            Obrigado,
+            <br />
+            <br />
+            Webware';
             $mail->addAddress($postEmail);
             if (!$mail->send()) {
                 echo 'Impossível enviar a mensagem.';
                 echo 'Erro: ' . $mail->ErrorInfo;
             } else {
-                echo 'Mensagem Enviada';
-                header('Location: mail.php');
+                echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+                    Registo efetuado com sucesso</div>';
             }
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
@@ -119,23 +123,25 @@ $conn->close();
                     <form method="POST" action="">
                         <div class="form-group">
                             <label>Nome</label>
-                            <input class="form-control" id="inputName" name="inputName" placeholder="Mínimo 3 carateres" type="text" pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$"
-                                value="<?php if (isset($postName)) {echo $postName;}?>" required>
+                            <input class="form-control" id="inputName" name="inputName" placeholder="Mínimo 3 carateres" 
+                                type="text" pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$"
+                                    value="<?php if (isset($postName)) {echo $postName;}?>" required>
                             <small class="form-text text-muted">
                                 O nome tem de conter no mínimo 3 carateres
                             </small>
                         </div>
                         <div class="form-group">
                             <label>Nome de utilizador</label>
-                            <input class="form-control" id="inputUsername" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$"
-                                value="<?php if (isset($postUsername)) {echo $postUsername;}?>" required>
+                            <input class="form-control" id="inputUsername" name="inputUsername" placeholder="Mínimo 8 carateres"
+                                type="text" pattern="^\w{8,}$" value="<?php if (isset($postUsername)) {echo $postUsername;}?>" required>
                             <small class="form-text text-muted">
                                 O nome de utilizador tem de conter no mínimo 8 carateres
                             </small>
                         </div>
                         <div class="form-group">
                             <label>Senha</label>
-                            <input class="form-control" id="inputPassword" name="inputPassword" placeholder="Mínimo 8 carateres" type="password" pattern="^[^\s].{6,}[^\s]$"
+                            <input class="form-control" id="inputPassword" name="inputPassword" placeholder="Mínimo 8 carateres"
+                                type="password" pattern="^[^\s].{6,}[^\s]$"
                                 value="<?php if (isset($password)) {echo $password;}?>" required>
                             <small class="form-text text-muted">
                                 A senha tem de conter no mínimo 8 carateres
@@ -143,17 +149,17 @@ $conn->close();
                         </div>
                         <div class="form-group">
                             <label>Confirmar senha</label>
-                            <input class="form-control" id="inputConfirmPassword" name="inputConfirmPassword" placeholder="Mínimo 8 carateres" type="password"
-                                pattern="^[^\s].{6,}[^\s]$" required>
+                            <input class="form-control" id="inputConfirmPassword" name="inputConfirmPassword"
+                                placeholder="Mínimo 8 carateres" type="password" pattern="^[^\s].{6,}[^\s]$" required>
                             <small class="form-text text-muted">
                                 As senhas têm de coincidir
                             </small>
                         </div>
                         <div class="form-group">
                             <label>Endereço de email</label>
-                            <input class="form-control" id="inputEmail" name="inputEmail" placeholder="Introduza o seu endereço de email" type="email"
-                                pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="<?php if (isset($postEmail)) {echo $postEmail;}?>"
-                                required>
+                            <input class="form-control" id="inputEmail" name="inputEmail" placeholder="Introduza o seu endereço de email"
+                                type="email" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                value="<?php if (isset($postEmail)) {echo $postEmail;}?>" required>
                             <small class="form-text text-muted">
                                 O endereço de email tem de ter pelo menos um '@' e um '.'
                             </small>
@@ -186,7 +192,8 @@ $conn->close();
                         <input class="btn btn-dark text-white float-sm-right" name="reset" id="reset" type="reset" value="Limpar" />
                         <br />
                         <br />
-                        <a class="btn btn-dark text-white float-sm-right" id="forgotPassword" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
+                        <a class="btn btn-dark text-white float-sm-right" id="forgotPassword" name="forgotPassword" 
+                            href="./forgot-password.php">Recuperar senha</a>
                     </form>
                 </div>
             </div>
