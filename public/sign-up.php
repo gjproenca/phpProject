@@ -86,11 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             Webware';
             $mail->addAddress($postEmail);
             if (!$mail->send()) {
-                echo 'Impossível enviar a mensagem.';
-                echo 'Erro: ' . $mail->ErrorInfo;
+                echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+                    Registo efetuado com sucesso, por favor aguarde até que um dos nossos administradores ative a sua conta</div>';
             } else {
                 echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
-                    Registo efetuado com sucesso</div>';
+                Registo efetuado com sucesso, por favor aguarde até que um dos nossos administradores ative a sua conta</div>';
             }
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
