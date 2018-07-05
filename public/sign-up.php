@@ -54,9 +54,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // TODO: add fade out or slide up aniamtion with jquery
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                 Registo efetuado com sucesso</div>';
-            // echo "Error: " . $sql . "<br>" . $conn->error; // to check query error
 
-            // TODO: send welcome email
+            // FIXME: send welcome email
+            include './../resources/PHPMailer/PHPMailerAutoload.php';
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            //$mail->SMTPDebug = 2;
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->SMTPOptions = array
+                (
+                'ssl' => array
+                (
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true,
+                ),
+            );
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->isHTML(true);
+            $mail->Username = 'contatestepsi@gmail.com';
+            $mail->Password = 'psi121415';
+            $mail->setFrom('contatestepsi@gmail.com', 'Conta teste');
+            $mail->addReplyTo('contatestepsi@gmail.com', 'Conta teste');
+            $mail->Subject = 'test subject';
+            $mail->Body = 'test message';
+            $mail->addAddress($postEmail);
+            if (!$mail->send()) {
+                echo 'Impossível enviar a mensagem.';
+                echo 'Erro: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Mensagem Enviada';
+                header('Location: mail.php');
+            }
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao efetuar o registo, por favor tente mais tarde</div>';
