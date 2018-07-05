@@ -30,8 +30,8 @@ if (!isset($_SESSION["userId"])) {
 </head>
 
 <body>
+    <!--body container-->
     <div>
-        <!--body container-->
 
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
@@ -55,7 +55,7 @@ if (!isset($_SESSION["userId"])) {
                         </li>
                     </ul>
                     &nbsp;
-                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../frontend/logout.php">
+                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../../frontend/signout.php">
                         <i class="fa fa-sign-out"></i> Sair</a>
                 </div>
             </div>

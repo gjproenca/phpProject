@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Senha errada</div>';
         } else if ($resultAdmin == 1) {
             if ($resultActive == 1) {
-                echo 'admin';
-                // TODO: session + redirect
+                $_SESSION['adminId'] = $resultUserId;
+                header('Location: ./../backend/index.php');
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                     Conta de administrador não ativa</div>';
