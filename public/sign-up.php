@@ -85,12 +85,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br />
             Webware';
             $mail->addAddress($postEmail);
-            if (!$mail->send()) {
+            if ($mail->send()) {
                 echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                     Registo efetuado com sucesso, por favor aguarde até que um dos nossos administradores ative a sua conta</div>';
             } else {
-                echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
-                Registo efetuado com sucesso, por favor aguarde até que um dos nossos administradores ative a sua conta</div>';
+                echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                    Registo efetuado com sucesso, mas não foi possível enviar um email de boas vindas, por favor aguarde até que um dos nossos administradores ative a sua conta</div>';
             }
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">

@@ -2,4 +2,4 @@
 session_start();
 
 unset($_SESSION["userId"]);
-header('Location: ./../frontend/index.php');
+header('Location: ./../index.php');

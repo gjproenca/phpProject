@@ -55,7 +55,7 @@ if (!isset($_SESSION["userId"])) {
                         </li>
                     </ul>
                     &nbsp;
-                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../../frontend/signout.php">
+                    <a class="btn navbar-btn btn-dark ml-2 text-white" href="./../frontend/signout.php">
                         <i class="fa fa-sign-out"></i> Sair</a>
                 </div>
             </div>
