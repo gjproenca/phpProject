@@ -9,6 +9,7 @@ $userId = $_SESSION['userId'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["submitUpload"])) {
 
+        // File upload
         if (isset($_FILES['inputFile']) && $_FILES['inputFile']['error'] != UPLOAD_ERR_NO_FILE) {
             $fileName = $_FILES['inputFile']['name'];
             $path = date('dmY-His' . time()) . mt_rand() . '-' . $fileName;
@@ -30,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Nenhum ficheiro selecionado</div>';
         }
     } else {
+        // Search bar form post
         $inputSearch = $_POST['inputSearch'];
         
         if($inputSearch == "") {
@@ -40,26 +42,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Set active to 0 in databse
 if (isset($_GET['uploadId'])) {
-    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = '" . $_GET['uploadId'] . "'";
+    $uploadId = $_GET['uploadId'];
+    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = $uploadId";
     $resultTableFiles = $conn->query($sqlTableFiles);
 
     header('Location: index.php');
 }
 
-// Setting name search term
+// Setting search term for sql query
 if (isset($inputSearch)) {
-    $nameSearch = $inputSearch;
+    $searchTerm = $inputSearch;
 } else {
-    $nameSearch = '%';
+    $searchTerm = '%';
 }
 
-// Variables to populate table with files
-$sqlTableFiles = "SELECT `UploadId`, `FileName` , `Path` FROM `upload`
+// Query to populate table with files
+$sqlTableFiles = "SELECT `UploadId`, `FileName` , `Path`
+                    FROM `upload`
                     WHERE `Active` = 1
-                    AND `FileName` LIKE '%$nameSearch%' ORDER BY `UploadId` DESC";
+                    AND `FileName` LIKE '%$searchTerm%' 
+                    ORDER BY `UploadId` DESC";
 $resultTableFiles = $conn->query($sqlTableFiles);
-
-// unset($inputSearch);
 
 $conn->close();
 ?>

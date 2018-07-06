@@ -16,7 +16,7 @@
                         <br>
                         <a href="./../backend/messages-public.php" class="text-white">Mensagens públicas</a>
                         <br>
-                        <a href="./../../backend/users.php" class="text-white">Permissões/Ativar utiizadores</a>
+                        <a href="./../backend/users.php" class="text-white">Permissões/Ativar utiizadores</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">
