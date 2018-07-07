@@ -101,7 +101,7 @@ $conn->close();
                 <div class="bg-primary border-secondary">
 
                     <!-- Table -->
-                    <table class="table table-hover table-dark">
+                    <table class="table table-responsive table-hover table-dark">
                         <thead class="thead-light">
                             <tr>
                                 <th class="text-center" colspan="3">Ficheiros</th>

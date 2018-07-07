@@ -169,6 +169,7 @@ $conn->close();
                                             } ?>
                                         </option>
 
+                                    <!-- TODO: change post counry name and verify -->
                                     <!-- Populate dropdownlist with countries -->
                                     <?php while ($postCountry = $resultCountries->fetch_assoc()): ?>
                                     <option>
@@ -189,11 +190,13 @@ $conn->close();
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-dark text-white col-5" id="submit" name="submit" type="submit">Submeter</button>
-                            <a class="btn btn-dark text-white col-5 float-right" id="forgotPassword" name="forgotPassword" href="./index.php">Cancelar</a>
+                            <button class="btn btn-dark text-white col-12" id="submit" name="submit" type="submit">Submeter</button>
                             <br />
                             <br />
-                            <button class="btn btn-dark text-white col-12" name="reset" id="reset" type="reset"/>Limpar</button>
+                            <button class="btn btn-dark text-white col-12" name="reset" id="reset" type="reset">Limpar</button>
+                            <br />
+                            <br />
+                            <a class="btn btn-dark text-white col-12" href="./index.php">Cancelar</a>
                         </form>
                     </div>
                 </div>

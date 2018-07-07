@@ -2,7 +2,6 @@
 include './../inc/masterpage-public/header.php';
 include './../inc/connection.php';
 
-// TODO: update password to new temp GUID and send temp GUID password trough email
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
@@ -167,9 +166,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     O endereço de email tem de ter pelo menos um '@' e um '.'
                                 </small>
                             </div>
-                            <button class="btn btn-dark text-white" name="submitForgotPassword">Submeter</button>
-                            &nbsp;&nbsp;&nbsp;
-                            <input class="btn btn-dark text-white" type="reset" value="Limpar" />
+                            <button class="btn btn-dark text-white col-md-12" name="submitForgotPassword">Submeter</button>
+                            <br />
+                            <br />
+                            <button class="btn btn-dark text-white col-md-12" name="reset" id="reset" type="reset">Limpar</button>
                         </form>
                     </div>
                 </div>

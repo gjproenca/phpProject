@@ -85,12 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     A senha tem de conter no mínimo 8 carateres
                                 </small>
                             </div>
-                            <button class="btn btn-dark text-white" name="signin" onclick="signin_Click">
-                                <i class="fa fa-sign-in"></i> Entrar</button>
-                            <input class="btn btn-dark text-white float-sm-right" name="resetSignin" type="reset" value="Limpar" />
+                            <button class="btn btn-dark text-white col-12" name="signin">Submeter</button>
                             <br />
                             <br />
-                            <a class="btn btn-dark text-white float-sm-right" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
+                            <button class="btn btn-dark text-white col-md-12" name="reset" id="reset" type="reset">Limpar</button>
+                            <br />
+                            <br />
+                            <a class="btn btn-dark text-white col-md-12" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
                         </form>
                     </div>
                 </div>

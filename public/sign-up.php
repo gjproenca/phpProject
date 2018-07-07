@@ -188,11 +188,13 @@ $conn->close();
                                 </label>
                             </div>
                         </div>
-                        <button class="btn btn-dark text-white" id="submit" name="submit" type="submit">Submeter</button>
-                        <input class="btn btn-dark text-white float-sm-right" name="reset" id="reset" type="reset" value="Limpar" />
+                        <button class="btn btn-dark text-white col-md-12" id="submit" name="submit" type="submit">Submeter</button>
                         <br />
                         <br />
-                        <a class="btn btn-dark text-white float-sm-right" id="forgotPassword" name="forgotPassword" 
+                        <button class="btn btn-dark text-white col-md-12" name="reset" id="reset" type="reset">Limpar</button>
+                        <br />
+                        <br />
+                        <a class="btn btn-dark text-white col-md-12" id="forgotPassword" name="forgotPassword" 
                             href="./forgot-password.php">Recuperar senha</a>
                     </form>
                 </div>

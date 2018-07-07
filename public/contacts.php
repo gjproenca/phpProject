@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //SQL database query
         if ($conn->query($sql) === true) {
-            // TODO: add fade out or slide up aniamtion with jquery
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                 Mensagem enviada com sucesso</div>';
         } else {
@@ -85,8 +84,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     A mensagem tem de conter no mínimo 20 carateres e no máximo 250 carateres
                                 </small>
                             </div>
-                            <button class="btn btn-dark text-white" name="submitContacts" OnClick="submit_Click">Submeter</button>
-                            <input class="btn btn-dark text-white float-sm-right" id="resetContacts" type="reset" value="Limpar">
+                            <button class="btn btn-dark text-white col-md-12" name="submitContacts" OnClick="submit_Click">Submeter</button>
+                            <br />
+                            <br />
+                            <button class="btn btn-dark text-white col-md-12" name="reset" id="reset" type="reset">Limpar</button>
                         </form>
                     </div>
                 </div>

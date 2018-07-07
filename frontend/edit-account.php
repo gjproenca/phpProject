@@ -62,10 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
         } else if ($conn->query($sqlRegisto) === true) {
-            // TODO: add fade out or slide up aniamtion with jquery
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                 Atualização efetuada com sucesso</div>';
-            // echo "Error: " . $sql . "<br>" . $conn->error; // to check query error
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao atualizar, por favor tente mais tarde</div>';
@@ -218,11 +216,10 @@ $conn->close();
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-dark text-white col-5" id="submit" name="submit" type="submit">Submeter</button>
-                            <button class="btn btn-dark text-white col-5 float-right" name="reset" id="reset" type="reset"/>Limpar</button>
+                            <button class="btn btn-dark text-white col-12" id="submit" name="submit" type="submit">Submeter</button>
                             <br />
                             <br />
-                            <a class="btn btn-dark text-white col-12" id="forgotPassword" name="forgotPassword" href="./forgot-password.php">Recuperar senha</a>
+                            <button class="btn btn-dark text-white float-sm-right col-md-12" name="reset" id="reset" type="reset">Limpar</button>
                         </form>
                     </div>
                 </div>

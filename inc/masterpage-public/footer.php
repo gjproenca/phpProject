@@ -8,13 +8,13 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <a href="/default.aspx" class="text-white">Início</a>
+                        <a href="./../public/index.php" class="text-white">Início</a>
                         <br>
-                        <a href="/frontend/signin.aspx" class="text-white">Entrar</a>
+                        <a href="./../public/sign-in.php" class="text-white">Entrar</a>
                         <br>
-                        <a href="/frontend/signup.aspx" class="text-white">Registar</a>
+                        <a href="./../public/sign-up.php" class="text-white">Registar</a>
                         <br>
-                        <a href="/frontend/contact.aspx" class="text-white">Contactos</a>
+                        <a href="./../public/contacts.php" class="text-white">Contactos</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">
