@@ -4,15 +4,15 @@ include './../inc/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // declaring search terms variables    
-    if(isset($_POST['formSearchCountry'])) {
+    if(isset($_POST['inputSearchCountry'])) {
         $inputSearchCountry = $_POST['inputSearchCountry'];
 
         if ($inputSearchCountry == "") {
             $inputSearchCountry = '%';
         }
     }
-    
-    if(isset($_POST['formSearchName'])) {
+   
+    if(isset($_POST['inputSearchName'])) {
         $inputSearchName = $_POST['inputSearchName'];
 
         if ($inputSearchName == "") {
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }    
     }
 
-    if(isset($_POST['formSearchUsername'])) {
+    if(isset($_POST['inputSearchUsername'])) {
         $inputSearchUsername = $_POST['inputSearchUsername'];
 
         if ($inputSearchUsername == "") {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    if(isset($_POST['formSearchEmail'])) {
+    if(isset($_POST['inputSearchEmail'])) {
         $inputSearchEmail = $_POST['inputSearchEmail'];
 
         if ($inputSearchEmail == "") {
@@ -62,6 +62,7 @@ if (isset($inputSearchEmail)) {
     $email = '%';
 }
 
+
 // Query to populate table with files
 $sqlTable = "SELECT    `user`.`UserId`,
                             `country`.`FormattedName`,
@@ -85,46 +86,42 @@ $conn->close();
     <div class="container">
         <div class="row">
 
-            <!-- Country search form -->
-            <div class="col-md-3 mb-5">
-                <form method="POST" action="" id="formSearchCountry">
-                    <input class="form-control text-center" type="text" id="inputSearchCountry" name="inputSearchCountry"
-                        value="<?php
-                                // FIXME: searchfields not saving search terms
-                                // Setting serchbox to empty if theres no chars in it
-                                if (isset($_POST['formSearchCountry'])) {
-                                    if ($inputSearchCountry == '%') {
-                                        echo '';
-                                    } else {
-                                        echo $inputSearchCountry;
-                                    }
-                                }
-                                ?>" placeholder="País">
-                </form>
-            </div>
+            <!-- Search form -->
+            <form class="col-md-12 mb-5" method="POST" action="" id="formSearch">
+                <div class="form-row">
 
-            <!-- Name search form -->
-            <div class="col-md-3 mb-5">
-                <form method="POST" action="" id="formSearchName">
-                    <input class="form-control text-center" type="text" id="inputSearchName" name="inputSearchName"
-                        value="<?php
-                                // Setting serchbox to empty if theres no chars in it
-                                if (isset($_POST['inputSearchName'])) {
-                                    if ($inputSearchName == '%') {
-                                        echo '';
-                                    } else {
-                                        echo $inputSearchName;
+                    <!-- Search Country -->
+                    <div class="col-md-3">
+                        <input class="form-control text-center" type="text" id="inputSearchCountry" name="inputSearchCountry" value="<?php
+                                    // FIXME: searchfields not saving search terms
+                                    // Setting serchbox to empty if theres no chars in it
+                                    if (isset($_POST['inputSearchCountry'])) {
+                                        if ($inputSearchCountry == '%') {
+                                            echo '';
+                                        } else {
+                                            echo $inputSearchCountry;
+                                        }
                                     }
-                                }
-                                ?>" placeholder="Nome">
-                </form>
-            </div>
+                                    ?>" placeholder="Procurar por País">
+                    </div>
 
-            <!-- Username search form -->
-            <div class="col-md-3 mb-5">
-                <form method="POST" action="" id="formSearchUsername">
-                    <input class="form-control text-center" type="text" id="inputSearchUsername" name="inputSearchUsername"
-                        value="<?php
+                    <!-- Search Name -->
+                    <div class="col-md-3">
+                        <input class="form-control text-center" type="text" id="inputSearchName" name="inputSearchName" value="<?php
+                                    // Setting serchbox to empty if theres no chars in it
+                                    if (isset($_POST['inputSearchName'])) {
+                                        if ($inputSearchName == '%') {
+                                            echo '';
+                                        } else {
+                                            echo $inputSearchName;
+                                        }
+                                    }
+                                    ?>" placeholder="Procurar por Nome">
+                    </div>
+
+                    <!-- Search Username -->
+                    <div class="col-md-3">
+                        <input class="form-control text-center" type="text" id="inputSearchUsername" name="inputSearchUsername" value="<?php
                                 // Setting serchbox to empty if theres no chars in it
                                 if (isset($_POST['inputSearchUsername'])) {
                                     if ($inputSearchUsername == '%') {
@@ -133,26 +130,24 @@ $conn->close();
                                         echo $inputSearchUsername;
                                     }
                                 }
-                                ?>" placeholder="Nome de utilizador">
-                </form>
-            </div>
+                                ?>" placeholder="Procurar por nome de utilizador">
+                    </div>
 
-            <!-- Email search form -->
-            <div class="col-md-3 mb-5">
-                <form method="POST" action="" id="formSearchEmail">
-                    <input class="form-control text-center" type="text" id="inputSearchEmail" name="inputSearchEmail"
-                        value="<?php
-                                // Setting serchbox to empty if theres no chars in it
-                                if (isset($_POST['inputSearchEmail'])) {
-                                    if ($inputSearchEmail == '%') {
-                                        echo '';
-                                    } else {
-                                        echo $inputSearchEmail;
+                    <!-- Search Email -->
+                    <div class="col-md-3">
+                        <input class="form-control text-center" type="text" id="inputSearchEmail" name="inputSearchEmail" value="<?php
+                                    // Setting serchbox to empty if theres no chars in it
+                                    if (isset($_POST['inputSearchEmail'])) {
+                                        if ($inputSearchEmail == '%') {
+                                            echo '';
+                                        } else {
+                                            echo $inputSearchEmail;
+                                        }
                                     }
-                                }
-                                ?>" placeholder="Email">
-                </form>
-            </div>
+                                    ?>" placeholder="Procurar por Email">
+                    </div>
+                </div>
+            </form>
 
             <div class="col-md-12">
                 <div class="bg-primary border-secondary">
@@ -166,7 +161,7 @@ $conn->close();
                                 <th>Nome</th>
                                 <th>Nome de utilizador</th>
                                 <th>Email</th>
-                                <th>Ação</th>
+                                <th class="text-center" colspan="2">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -187,6 +182,9 @@ $conn->close();
                                 </td>
                                 <td>
                                     <?php echo $rowTable['Email'] ?>
+                                </td>
+                                <td>
+                                    <a href="?uploadId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
                                     <a href="?uploadId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger">Eliminar</a>
@@ -213,27 +211,27 @@ $conn->close();
 
     // submit form after user finished pressing keys for 1 second
     $(document).ready(() => {
-         $("#inputSearchCountry").keyup(() => {
+        $("#inputSearchCountry").keyup(() => {
             delay(function () {
-                $("#formSearchCountry").submit();
+                $("#formSearch").submit();
             }, 1000);
         });
 
         $("#inputSearchName").keyup(() => {
             delay(function () {
-                $("#formSearchName").submit();
+                $("#formSearch").submit();
             }, 1000);
         });
 
         $("#inputSearchUsername").keyup(() => {
             delay(function () {
-                $("#formSearchUsername").submit();
+                $("#formSearch").submit();
             }, 1000);
         });
 
         $("#inputSearchEmail").keyup(() => {
             delay(function () {
-                $("#formSearchEmail").submit();
+                $("#formSearch").submit();
             }, 1000);
         });
     });
