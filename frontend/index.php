@@ -46,7 +46,7 @@ if (isset($_GET['uploadId'])) {
     $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = $uploadId";
     $resultTableFiles = $conn->query($sqlTableFiles);
 
-    header('Location: index.php');
+    header('Location: ./index.php');
 }
 
 // Setting search term for sql query

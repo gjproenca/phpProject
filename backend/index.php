@@ -62,6 +62,15 @@ if (isset($inputSearchEmail)) {
     $email = '%';
 }
 
+// Set active to 0 in databse
+if (isset($_GET['userId'])) {
+    $userId = $_GET['userId'];
+    $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId";
+    $conn->query($sqlDeactivateUser);
+
+    header('Location: ./index.php');
+}
+
 
 // Query to populate table with files
 $sqlTable = "SELECT    `user`.`UserId`,
@@ -75,8 +84,7 @@ $sqlTable = "SELECT    `user`.`UserId`,
                         AND `country`.`FormattedName` LIKE '%$country%'
                         AND `user`.`Name` LIKE '%$name%'
                         AND `user`.`Username` LIKE '%$username%'
-                        AND `user`.`Email` LIKE '%$email%'
-                    ORDER BY `UserId` DESC;";
+                        AND `user`.`Email` LIKE '%$email%';";
 $resultTable = $conn->query($sqlTable);
 
 $conn->close();
@@ -93,7 +101,6 @@ $conn->close();
                     <!-- Search Country -->
                     <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchCountry" name="inputSearchCountry" value="<?php
-                                    // FIXME: searchfields not saving search terms
                                     // Setting serchbox to empty if theres no chars in it
                                     if (isset($_POST['inputSearchCountry'])) {
                                         if ($inputSearchCountry == '%') {
@@ -153,7 +160,7 @@ $conn->close();
                 <div class="bg-primary border-secondary">
 
                     <!-- Table -->
-                    <table class="table table-hover table-dark">
+                    <table class="table table-responsive table-hover table-dark">
                         <thead class="thead-light">
                             <tr>
                                 <th>UserId</th>
@@ -184,10 +191,10 @@ $conn->close();
                                     <?php echo $rowTable['Email'] ?>
                                 </td>
                                 <td>
-                                    <a href="?uploadId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
+                                    <a href="./index-edit.php?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="?uploadId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger">Eliminar</a>
+                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
