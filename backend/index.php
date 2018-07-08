@@ -157,10 +157,10 @@ $conn->close();
             </form>
 
             <div class="col-md-12">
-                <div class="bg-primary border-secondary">
+                <!-- <div class="bg-primary border-secondary"> -->
 
                     <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark">
+                    <table class="table table-responsive table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>UserId</th>
@@ -200,7 +200,7 @@ $conn->close();
                             <?php endwhile;?>
                         </tbody>
                     </table>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

@@ -203,10 +203,11 @@ $conn->close();
             </form>
 
             <div class="col-md-12">
-                <div class="bg-primary border-secondary">
+                <!-- <div class="bg-primary border-secondary"> -->
 
+                    <!-- TODO: fix table having a gap on the right side-->
                     <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark">
+                    <table class="table table-responsive table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>UserId</th>
@@ -249,8 +250,7 @@ $conn->close();
                                     ?>
                                 </td>
                                 <td>
-                                    <!-- TODO: make edit page -->
-                                    <a href="./index-edit.php?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-warning">Editar</a>
+                                    <a href="./user-activation-permissions-edit.php?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
                                     <a href="?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-danger">Eliminar</a>
@@ -259,7 +259,7 @@ $conn->close();
                             <?php endwhile;?>
                         </tbody>
                     </table>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>
