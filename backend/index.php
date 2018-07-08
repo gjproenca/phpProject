@@ -80,11 +80,11 @@ $sqlTable = "SELECT    `user`.`UserId`,
                             `user`.`Email`
                     FROM    `user`
                     JOIN    `country` ON `country`.`CountryId` = `user`.`CountryId`
-                    WHERE   `Active` = 1
-                        AND `country`.`FormattedName` LIKE '%$country%'
+                    WHERE `country`.`FormattedName` LIKE '%$country%'
                         AND `user`.`Name` LIKE '%$name%'
                         AND `user`.`Username` LIKE '%$username%'
-                        AND `user`.`Email` LIKE '%$email%';";
+                        AND `user`.`Email` LIKE '%$email%'
+                    ORDER BY `UserId` DESC;";
 $resultTable = $conn->query($sqlTable);
 
 $conn->close();

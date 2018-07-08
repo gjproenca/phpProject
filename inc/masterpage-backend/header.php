@@ -50,7 +50,8 @@ if (!isset($_SESSION["adminId"])) {
                         <a class="nav-link" href="./../backend/messages-public.php">Mensagens públicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./../backend/users.php.aspx">Permissões/Ativar utilizadores</a>
+                        <a class="nav-link"
+                            href="./../backend/user-activation-permissions.php">Permissões/Ativar utilizadores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./../backend/index.php">Dados dos utilizadores</a>
