@@ -83,7 +83,7 @@ if (isset($_GET['uploadIdRestore'])) {
 }
 
 // Query to populate table with files
-$sqlTable = "SELECT    `upload`.`UploadId`,
+$sqlTable = "SELECT         `upload`.`UploadId`,
                             `upload`.`FileName`,
                             `upload`.`Path`,
                             `upload`.`Active` AS 'UploadActive',
@@ -122,14 +122,14 @@ $conn->close();
                                             echo $inputSearchFilename;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por ficheiro">
+                                    ?>" placeholder="Ficheiro">
                     </div>
 
                     <!-- Search Active -->
                     <div class="col-md-3">
                         <select class="form-control text-center" id="inputSearchActive" name="inputSearchActive" required>
 
-                            <!-- FIXME: after resotring, jumps to upload page again -->
+                            <!-- FIXME: after restoring, jumps to upload page again -->
                             <option selected>
                                 <?php 
                                     if (isset($_POST['inputSearchActive'])) {
@@ -172,7 +172,7 @@ $conn->close();
                                         echo $inputSearchUsername;
                                     }
                                 }
-                                ?>" placeholder="Procurar por nome de utilizador">
+                                ?>" placeholder="Nome de utilizador">
                     </div>
 
                     <!-- Search Email -->
@@ -186,7 +186,7 @@ $conn->close();
                                             echo $inputSearchEmail;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por Email">
+                                    ?>" placeholder="Email">
                     </div>
                 </div>
             </form>

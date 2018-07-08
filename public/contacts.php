@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         //SQL query statement
         $sql = "INSERT INTO `messagepublic` (`Name`,`Email`,`Subject`,`Message`)
-            VALUES ('$name','$subject','$email','$message')";
+            VALUES ('$name','$email','$subject','$message')";
 
         //SQL database query
         if ($conn->query($sql) === true) {
@@ -50,15 +50,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="">
                             <h1 class="mb-4 text-center text-white">Contactos</h1>
                             <div class="form-group">
-                                <label for="InputName">Nome</label>
+                                <label for="inputName">Nome</label>
                                 <input class="form-control" name="inputName" type="text" placeholder="Introduza o seu nome"
                                     MaxLength="100" pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$" required>
                                 <small class="form-text text-muted">
                                     O nome tem de conter no mínimo 3 carateres
                                 </small>
                             </div>
+                                <div class="form-group">
+                                    <label for="inputEmail">Endereço de email</label>
+                                    <input class="form-control" name="inputEmail" type="email" 
+                                        placeholder="Introduza o seu endereço de email" 
+                                        MaxLength="70" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
+                                    <small class="form-text text-muted">
+                                        O endereço de email tem de ter pelo menos um '@' e um '.'
+                                    </small>
+                                </div>
                             <div class="form-group">
-                                <label for="InputName">Assunto</label>
+                                <label for="inputSubject">Assunto</label>
                                 <input class="form-control" name="inputSubject" type="text" placeholder="Introduza o assunto" 
                                     MaxLength="70" pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$" required>
                                 <small class="form-text text-muted">
@@ -66,20 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </small>
                             </div>
                             <div class="form-group">
-                                <label for="InputEmail1">Endereço de email</label>
-                                <input class="form-control" name="inputEmail" type="email" 
-                                    placeholder="Introduza o seu endereço de email" 
-                                    MaxLength="70" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required>
-                                <small class="form-text text-muted">
-                                    O endereço de email tem de ter pelo menos um '@' e um '.'
-                                </small>
-                            </div>
-                            <div class="form-group">
-                                <label for="Textarea">Mensagem</label>
+                                <label for="textAreaMessage">Mensagem</label>
                                 <textarea class="form-control" name="textAreaMessage" Rows="3" 
                                     placeholder="Introduza a sua mensagem, mínimo 20 carateres, máximo 250"
-                                    minlength="20" maxlength="250" required>
-                                </textarea>
+                                    minlength="20" maxlength="250" required></textarea>
                                 <small class="form-text text-muted">
                                     A mensagem tem de conter no mínimo 20 carateres e no máximo 250 carateres
                                 </small>

@@ -113,7 +113,7 @@ $conn->close();
                                         echo $inputSearchUsername;
                                     }
                                 }
-                                ?>" placeholder="Procurar por nome de utilizador">
+                                ?>" placeholder="Nome de utilizador">
                     </div>
 
                     <!-- Search Email -->
@@ -127,7 +127,7 @@ $conn->close();
                                             echo $inputSearchEmail;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por Email">
+                                    ?>" placeholder="Email">
                     </div>
 
                     <!-- Search Admin -->
@@ -169,10 +169,10 @@ $conn->close();
                     <div class="col-md-3">
                         <select class="form-control text-center" id="inputSearchActive" name="inputSearchActive" required>
                                         
-                            <option selected>
+                        <option selected>
                                 <?php 
                                     if (isset($_POST['inputSearchActive'])) {
-                                        if ($inputSearchActive == '1') {
+                                        if ($inputSearchActive == 1) {
                                             echo 'Ativo';
                                         } else {
                                             echo 'Não ativo';
@@ -186,13 +186,13 @@ $conn->close();
                             <option>
                                 <?php 
                                     if (isset($_POST['inputSearchActive'])) {
-                                        if ($inputSearchActive == '1') {
+                                        if ($inputSearchActive == 1) {
                                             echo 'Não ativo';
                                         } else {
                                             echo 'Ativo';
                                         }
                                     } else {
-                                        echo 'Ativo';
+                                        echo 'Não ativo';
                                     }
                                 ?>
                             </option>

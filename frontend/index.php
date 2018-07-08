@@ -57,10 +57,13 @@ if (isset($inputSearch)) {
 }
 
 // Query to populate table with files
-$sqlTableFiles = "SELECT `UploadId`, `FileName` , `Path`
+$sqlTableFiles = "SELECT    `UploadId`, 
+                            `FileName` , 
+                            `Path`
                     FROM `upload`
                     WHERE `Active` = 1
-                    AND `FileName` LIKE '%$searchTerm%' 
+                    AND `FileName` LIKE '%$searchTerm%'
+                    AND `UserId` = $userId 
                     ORDER BY `UploadId` DESC";
 $resultTableFiles = $conn->query($sqlTableFiles);
 

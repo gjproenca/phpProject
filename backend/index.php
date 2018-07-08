@@ -109,7 +109,7 @@ $conn->close();
                                             echo $inputSearchCountry;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por País">
+                                    ?>" placeholder="País">
                     </div>
 
                     <!-- Search Name -->
@@ -123,7 +123,7 @@ $conn->close();
                                             echo $inputSearchName;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por Nome">
+                                    ?>" placeholder="Nome">
                     </div>
 
                     <!-- Search Username -->
@@ -137,7 +137,7 @@ $conn->close();
                                         echo $inputSearchUsername;
                                     }
                                 }
-                                ?>" placeholder="Procurar por nome de utilizador">
+                                ?>" placeholder="Nome de utilizador">
                     </div>
 
                     <!-- Search Email -->
@@ -151,7 +151,7 @@ $conn->close();
                                             echo $inputSearchEmail;
                                         }
                                     }
-                                    ?>" placeholder="Procurar por Email">
+                                    ?>" placeholder="Email">
                     </div>
                 </div>
             </form>
