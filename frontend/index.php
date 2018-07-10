@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (($_FILES['inputFile']['error'] == UPLOAD_ERR_OK)
                 && ($_FILES['inputFile']['error'] != UPLOAD_ERR_INI_SIZE)) {
-                if (move_uploaded_file($_FILES['inputFile']['tmp_name'], './../uploads/' . $path)) {
+                if (move_uploaded_file($_FILES['inputFile']['tmp_name'], './uploads/' . $path)) {
                     $sqlFiles = "INSERT INTO `upload` (`UserId`,`FileName`,`Path`)
                                     VALUES ($userId,'$fileName','$path')";
 
