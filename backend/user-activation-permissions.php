@@ -253,7 +253,7 @@ $conn->close();
                                     <a href="./user-activation-permissions-edit.php?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-danger">Eliminar</a>
+                                    <a id="buttonDelete" href="?userId=<?php echo $rowTable['UserId']; ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar este utilizador?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
@@ -275,8 +275,15 @@ $conn->close();
         };
     })();
 
-    // submit form after user finished pressing keys for 1 second
     $(document).ready(() => {
+        // hide button if search == not active
+        if($("#inputSearchActive").val() == "Não ativo"){
+            $("#buttonDelete").hide();
+        } else{
+            $("#buttonDelete").show();
+        }
+
+        // submit form after user finished pressing keys for 1 second
         $("#inputSearchUsername").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();

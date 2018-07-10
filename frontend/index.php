@@ -22,6 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     $conn->query($sqlFiles);
                 }
+
+                echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
+                    Ficheiro carregado com sucesso</div>';
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                     Não foi possível carregar o ficheiro, tamanho máximo de carregamento 2MB (versão de teste)</div>';
@@ -30,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Nenhum ficheiro selecionado</div>';
         }
-    } else {
+    } else if(isset($_POST['inputSearch'])) {
         // Search bar form post
         $inputSearch = $_POST['inputSearch'];
         
@@ -124,6 +127,7 @@ $conn->close();
                                 </td>
                                 <td>
                                     <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>"
+                                        onclick="return confirm('Tem a certeza que quer eliminar este ficheiro?')"
                                         class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>

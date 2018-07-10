@@ -194,7 +194,8 @@ $conn->close();
                                     <a href="./index-edit.php?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger">Eliminar</a>
+                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger" 
+                                        onclick="return confirm('Tem a certeza que quer desativar este utilizador?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
@@ -207,7 +208,7 @@ $conn->close();
 </div>
 
 <script>
-    // creater timer function
+    // timer function
     var delay = (() => {
         var timer = 0;
         return function (callback, ms) {

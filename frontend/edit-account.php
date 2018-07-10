@@ -61,13 +61,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($querySqlEmail->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
-        } else if(isset($_POST['deleteAccount'])){
+        } else if (isset($_POST['deleteAccount'])) {
             $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId;";
-            if($conn->query($sqlDeleteAccount) == true) {
-                header("Location: ./signout.php");
+
+            // verify correct password
+            $sqlVerifyPassword = "SELECT `Password` FROM `user` WHERE `UserId` = $userId";
+            $resultVerifyPassword = $conn->query($sqlVerifyPassword)->fetch_assoc();
+
+            if ($resultVerifyPassword['Password'] == $hashPassword) {
+                if ($conn->query($sqlDeleteAccount) == true) {
+                    header("Location: ./signout.php");
+                } else {
+                    echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                        Falha ao apagar conta, por favor tente mais tarde</div>';
+                }
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Falha ao apagar conta, por favor tente mais tarde</div>';    
+                    Senha errada</div>';    
             }
         } else if ($conn->query($sqlRegisto) === true) {
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
@@ -120,34 +130,34 @@ $conn->close();
                     <div class="card-body">
                         <h1 class="mb-4 text-center text-white">Editar conta</h1>
                         <form method="POST" action="">
-                            
+
                             <!-- Name -->
                             <div class="form-group">
                                 <label>Nome</label>
                                 <input class="form-control" id="inputName" name="inputName" placeholder="Mínimo 3 carateres" type="text" pattern="^[A-Za-zÀ-Úà-ú]{2,}[A-Za-zÀ-Úà-ú\s]*[A-Za-zÀ-Úà-ú]$"
-                                    value="<?php 
-                                                if (isset($postName)) {
-                                                    echo $postName;
-                                                } else { 
-                                                    echo $resultInputFieldsName;
-                                                } 
-                                            ?>" required>
+                                    value="<?php
+if (isset($postName)) {
+    echo $postName;
+} else {
+    echo $resultInputFieldsName;
+}
+?>" required>
                                 <small class="form-text text-muted">
                                     O nome tem de conter no mínimo 3 carateres
                                 </small>
                             </div>
-                            
+
                             <!-- Username -->
                             <div class="form-group">
                                 <label>Nome de utilizador</label>
                                 <input class="form-control" id="inputUsername" name="inputUsername" placeholder="Mínimo 8 carateres" type="text" pattern="^\w{8,}$"
-                                    value="<?php 
-                                                if (isset($postUsername)) {
-                                                    echo $postUsername;
-                                                } else {
-                                                    echo $resultInputFieldsUsername;
-                                                }
-                                            ?>" required>
+                                    value="<?php
+if (isset($postUsername)) {
+    echo $postUsername;
+} else {
+    echo $resultInputFieldsUsername;
+}
+?>" required>
                                 <small class="form-text text-muted">
                                     O nome de utilizador tem de conter no mínimo 8 carateres
                                 </small>
@@ -156,13 +166,13 @@ $conn->close();
                             <!-- Password -->
                             <div class="form-group">
                                 <label>Senha</label>
-                                <input class="form-control" id="inputPassword" name="inputPassword" placeholder="Mínimo 8 carateres" type="password" 
+                                <input class="form-control" id="inputPassword" name="inputPassword" placeholder="Mínimo 8 carateres" type="password"
                                     pattern="^[^\s].{6,}[^\s]$" value="<?php if (isset($password)) {echo $password;}?>" required>
                                 <small class="form-text text-muted">
                                     A senha tem de conter no mínimo 8 carateres
                                 </small>
                             </div>
-                            
+
                             <!-- Confirm password -->
                             <div class="form-group">
                                 <label>Confirmar senha</label>
@@ -177,13 +187,13 @@ $conn->close();
                             <div class="form-group">
                                 <label>Endereço de email</label>
                                 <input class="form-control" id="inputEmail" name="inputEmail" placeholder="Introduza o seu endereço de email" type="email"
-                                    pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="<?php 
-                                                                                                    if (isset($postEmail)) {
-                                                                                                        echo $postEmail;
-                                                                                                    } else {
-                                                                                                        echo $resultInputFieldsEmail;
-                                                                                                    } 
-                                                                                                  ?>" required>
+                                    pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" value="<?php
+if (isset($postEmail)) {
+    echo $postEmail;
+} else {
+    echo $resultInputFieldsEmail;
+}
+?>" required>
                                 <small class="form-text text-muted">
                                     O endereço de email tem de ter pelo menos um '@' e um '.'
                                 </small>
@@ -193,14 +203,14 @@ $conn->close();
                             <div class="form-group">
                                 <label for="dropdownListCountries">País</label>
                                 <select class="form-control" id="dropdownListCountries" name="dropdownListCountries" required>
-                                    
+
                                     <option selected>
-                                        <?php 
-                                            if (isset($postCountry)) {
-                                                echo $postCountry;
-                                            } else {
-                                                echo $resultInputFieldsCountry;
-                                            } ?>
+                                        <?php
+if (isset($postCountry)) {
+    echo $postCountry;
+} else {
+    echo $resultInputFieldsCountry;
+}?>
                                         </option>
 
                                     <!-- Populate dropdownlist with countries -->
@@ -232,9 +242,8 @@ $conn->close();
                             <br />
                             <br />
                             <br />
-                            <!-- FIXME: not shoing alert annd inputing worng password -->
-                            <button class="btn btn-dark text-white float-sm-right col-md-12" 
-                                name="deleteAccount" id="deleteAccount" type="submit" onclick="<script>alert('Tem a certeza que quer apagar a conta?');</script>">Apagar conta</button>
+                            <button class="btn btn-dark text-white float-sm-right col-md-12"
+                                name="deleteAccount" id="deleteAccount" type="submit" onclick="return confirm('Tem a certeza que quer apagar a conta?')">Apagar conta</button>
                         </form>
                     </div>
                 </div>

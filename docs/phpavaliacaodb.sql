@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2018 at 01:14 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jul 10, 2018 at 10:33 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -299,21 +299,6 @@ CREATE TABLE `messagefrontend` (
   `Modified` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `messagefrontend`
---
-
-INSERT INTO `messagefrontend` (`MessageUserId`, `UserId`, `Subject`, `Message`, `Active`, `CreationDate`, `Modified`) VALUES
-(1, 3, 'hello world', 'sadasdww', b'1', '2018-07-02 10:41:35.833', '2018-07-02 10:41:35.833'),
-(2, 3, 'feefe', 'dwd', b'1', '2018-07-02 10:41:40.959', '2018-07-02 10:41:40.959'),
-(3, 3, 'feefe', 'dwd', b'1', '2018-07-02 10:42:23.821', '2018-07-02 10:42:23.821'),
-(4, 3, 'asdwdw', 'wd', b'1', '2018-07-02 10:42:28.885', '2018-07-02 10:42:28.885'),
-(5, 3, 'wdwd', 'd', b'1', '2018-07-02 10:42:42.094', '2018-07-02 10:42:42.094'),
-(6, 3, 'wdwd', 'd', b'1', '2018-07-02 10:46:07.081', '2018-07-02 10:46:07.081'),
-(7, 3, 'wdwd', 'd', b'1', '2018-07-02 10:46:32.913', '2018-07-02 10:46:32.913'),
-(8, 3, 'wdwd', 'd', b'1', '2018-07-02 10:47:29.667', '2018-07-02 10:47:29.667'),
-(9, 3, 'hello world', 'wdasdwdwdwdwdw wdwd\r\n', b'1', '2018-07-02 11:02:29.231', '2018-07-02 11:02:29.231');
-
 -- --------------------------------------------------------
 
 --
@@ -330,22 +315,6 @@ CREATE TABLE `messagepublic` (
   `CreationDate` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `Modified` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `messagepublic`
---
-
-INSERT INTO `messagepublic` (`MessageId`, `Name`, `Email`, `Subject`, `Message`, `Active`, `CreationDate`, `Modified`) VALUES
-(2, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:04:46.575', '2018-06-29 12:04:46.575'),
-(3, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:08:02.321', '2018-06-29 12:08:02.321'),
-(4, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:10:11.442', '2018-06-29 12:10:11.442'),
-(5, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:10:25.861', '2018-06-29 12:10:25.861'),
-(6, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:12:29.879', '2018-06-29 12:12:29.879'),
-(7, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:13:57.729', '2018-06-29 12:13:57.729'),
-(8, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:15:34.915', '2018-06-29 12:15:34.915'),
-(9, 0, 'asda', 0, 'asd', b'1', '2018-06-29 12:17:09.365', '2018-06-29 12:17:09.365'),
-(10, 0, 'asdadw', 0, 'dwdwd', b'1', '2018-06-29 12:17:24.386', '2018-06-29 12:17:24.386'),
-(11, 0, 'asdazxc', 0, 'zxc', b'1', '2018-06-29 12:23:50.262', '2018-06-29 12:23:50.262');
 
 -- --------------------------------------------------------
 
@@ -442,13 +411,13 @@ ALTER TABLE `country`
 -- AUTO_INCREMENT for table `messagefrontend`
 --
 ALTER TABLE `messagefrontend`
-  MODIFY `MessageUserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `MessageUserId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `messagepublic`
 --
 ALTER TABLE `messagepublic`
-  MODIFY `MessageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `MessageId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `upload`

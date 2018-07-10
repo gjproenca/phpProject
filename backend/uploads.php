@@ -241,10 +241,11 @@ $conn->close();
                                     <?php echo $rowTable['Email']; ?>
                                 </td>
                                 <td>
-                                    <a href="?uploadIdRestore=<?php echo $rowTable['UploadId']; ?>" class="btn btn-warning">Restaurar</a>
+                                    <a id="buttonRestore" href="?uploadIdRestore=<?php echo $rowTable['UploadId']; ?>" class="btn btn-warning">Restaurar</a>
                                 </td>
                                 <td>
-                                    <a href="?uploadIdDelete=<?php echo $rowTable['UploadId']; ?>" class="btn btn-danger">Eliminar</a>
+                                    <a id="buttonDelete" href="?uploadIdDelete=<?php echo $rowTable['UploadId']; ?>" class="btn btn-danger"
+                                    onclick="return confirm('Tem a certeza que quer desativar este ficheiro?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
@@ -266,8 +267,17 @@ $conn->close();
         };
     })();
 
-    // submit form after user finished pressing keys for 1 second
     $(document).ready(() => {
+        // hide button if search == not active
+        if($("#inputSearchActive").val() == "Não ativo"){
+            $("#buttonRestore").show();
+            $("#buttonDelete").hide();
+        } else{
+            $("#buttonRestore").hide();
+            $("#buttonDelete").show();
+        }
+
+        // submit form after user finished pressing keys for 1 second
         $("#inputSearchFilename").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();
