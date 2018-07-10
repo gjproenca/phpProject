@@ -245,7 +245,7 @@ $conn->close();
                                 </td>
                                 <td>
                                     <a id="buttonDelete" href="?uploadIdDelete=<?php echo $rowTable['UploadId']; ?>" class="btn btn-danger"
-                                    onclick="return confirm('Tem a certeza que quer desativar este ficheiro?')">Eliminar</a>
+                                        onclick="return confirm('Tem a certeza que quer desativar este ficheiro?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
