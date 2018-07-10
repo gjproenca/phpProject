@@ -61,6 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($querySqlEmail->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+        } else if(isset($_POST['deleteAccount'])){
+            $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId;";
+            if($conn->query($sqlDeleteAccount) == true) {
+                header("Location: ./signout.php");
+            } else {
+                echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                Falha ao apagar conta, por favor tente mais tarde</div>';    
+            }
         } else if ($conn->query($sqlRegisto) === true) {
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                 Atualização efetuada com sucesso</div>';
@@ -220,6 +228,13 @@ $conn->close();
                             <br />
                             <br />
                             <button class="btn btn-dark text-white float-sm-right col-md-12" name="reset" id="reset" type="reset">Limpar</button>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <!-- FIXME: not shoing alert annd inputing worng password -->
+                            <button class="btn btn-dark text-white float-sm-right col-md-12" 
+                                name="deleteAccount" id="deleteAccount" type="submit" onclick="<script>alert('Tem a certeza que quer apagar a conta?');</script>">Apagar conta</button>
                         </form>
                     </div>
                 </div>
