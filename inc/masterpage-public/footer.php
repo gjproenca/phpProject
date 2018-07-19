@@ -8,6 +8,7 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
+                        <!-- TODO: add about -->
                         <a href="./../public/index.php" class="text-white">Início</a>
                         <br>
                         <a href="./../public/sign-in.php" class="text-white">Entrar</a>

@@ -23,7 +23,7 @@
 <body>
     <!--body container-->
     <div>
-
+        <!-- TODO: add about -->
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="./../public/index.php">Webware</a>

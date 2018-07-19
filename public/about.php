@@ -1,6 +1,6 @@
 <?php include './../inc/masterpage-public/header.php';?>
 
-<div class="py-5 text-center" style="background-image: url(./../resources/images/warehouse.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+<div class="py-5 text-center" style="background-image: url(./../resources/images/about.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;">
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
@@ -22,12 +22,12 @@
                 </p>
             </div>
             <div class="col-md-5 align-self-center">
-                <img class="img-fluid d-block w-100 img-thumbnail" src="./../resources/images/bullet.jpg">
+                <img class="img-fluid d-block w-100 img-thumbnail" src="./../resources/images/about-1.jpg">
             </div>
         </div>
         <div class="row">
             <div class="col-md-5">
-                <img class="img-fluid d-block mb-4 w-100 img-thumbnail" src="./../resources/images/security.jpg">
+                <img class="img-fluid d-block mb-4 w-100 img-thumbnail" src="./../resources/images/about-2.jpg">
             </div>
             <div class="col-md-7">
                 <h2 class="text-primary pt-3">A nossa missão</h2>
