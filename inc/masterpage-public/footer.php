@@ -8,7 +8,6 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <!-- TODO: add about -->
                         <a href="./../public/index.php" class="text-white">Início</a>
                         <br>
                         <a href="./../public/sign-in.php" class="text-white">Entrar</a>
@@ -16,6 +15,8 @@
                         <a href="./../public/sign-up.php" class="text-white">Registar</a>
                         <br>
                         <a href="./../public/contacts.php" class="text-white">Contactos</a>
+                        <br>
+                        <a href="./../public/about.php" class="text-white">Acerca</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">

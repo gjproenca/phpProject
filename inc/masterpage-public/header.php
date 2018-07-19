@@ -23,7 +23,6 @@
 <body>
     <!--body container-->
     <div>
-        <!-- TODO: add about -->
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="./../public/index.php">Webware</a>
@@ -32,6 +31,10 @@
                 </button>
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav">
+                    <li class="nav-item">
+                            <a class="nav-link" href="./../public/about.php">
+                                <i class="fa fa-drivers-license-o"></i> Acerca</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./../public/contacts.php">
                                 <i class="fa fa-envelope"></i> Contactos</a>

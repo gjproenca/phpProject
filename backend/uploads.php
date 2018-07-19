@@ -112,8 +112,7 @@ $conn->close();
 
                     <!-- Search Filename -->
                     <div class="col-md-3">
-                        <input class="form-control text-center" type="text" id="inputSearchFilename" name="inputSearchFilename"
-                            value="<?php
+                        <input class="form-control text-center" type="text" id="inputSearchFilename" name="inputSearchFilename" value="<?php
                                     // Setting serchbox to empty if theres no chars in it
                                     if (isset($_POST['inputSearchFilename'])) {
                                         if ($inputSearchFilename == '%') {
@@ -192,11 +191,10 @@ $conn->close();
             </form>
 
             <div class="col-md-12">
-                <!-- <div class="bg-primary border-secondary"> -->
 
-                    <!-- TODO: fix table having a gap on the right side-->
-                    <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark mb-0">
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>UploadId</th>
@@ -244,14 +242,13 @@ $conn->close();
                                     <a id="buttonRestore" href="?uploadIdRestore=<?php echo $rowTable['UploadId']; ?>" class="btn btn-warning">Restaurar</a>
                                 </td>
                                 <td>
-                                    <a id="buttonDelete" href="?uploadIdDelete=<?php echo $rowTable['UploadId']; ?>" class="btn btn-danger"
-                                        onclick="return confirm('Tem a certeza que quer desativar este ficheiro?')">Eliminar</a>
+                                    <a id="buttonDelete" href="?uploadIdDelete=<?php echo $rowTable['UploadId']; ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar este ficheiro?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
                         </tbody>
                     </table>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -269,12 +266,12 @@ $conn->close();
 
     $(document).ready(() => {
         // hide button if search == not active
-        if($("#inputSearchActive").val() == "Não ativo"){
-            $("#buttonRestore").show();
-            $("#buttonDelete").hide();
-        } else{
-            $("#buttonRestore").hide();
-            $("#buttonDelete").show();
+        if ($("#inputSearchActive").val() == "Não ativo") {
+            $("#buttonRestore").prop("hidden", false);
+            $("#buttonDelete").prop("hidden", true);
+        } else {
+            $("#buttonRestore").prop("hidden", true);
+            $("#buttonDelete").prop("hidden", false);
         }
 
         // submit form after user finished pressing keys for 1 second
@@ -283,13 +280,13 @@ $conn->close();
                 $("#formSearch").submit();
             }, 1000);
         });
-        
+
         $("#inputSearchActive").change(() => {
             delay(function () {
                 $("#formSearch").submit();
             }, 1000);
         });
-        
+
         $("#inputSearchUsername").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();

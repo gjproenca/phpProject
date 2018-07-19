@@ -3,32 +3,32 @@ include './../inc/masterpage-backend/header.php';
 include './../inc/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // declaring search terms variables    
-    if(isset($_POST['inputSearchCountry'])) {
+    // declaring search terms variables
+    if (isset($_POST['inputSearchCountry'])) {
         $inputSearchCountry = $_POST['inputSearchCountry'];
 
         if ($inputSearchCountry == "") {
             $inputSearchCountry = '%';
         }
     }
-   
-    if(isset($_POST['inputSearchName'])) {
+
+    if (isset($_POST['inputSearchName'])) {
         $inputSearchName = $_POST['inputSearchName'];
 
         if ($inputSearchName == "") {
             $inputSearchName = '%';
-        }    
+        }
     }
 
-    if(isset($_POST['inputSearchUsername'])) {
+    if (isset($_POST['inputSearchUsername'])) {
         $inputSearchUsername = $_POST['inputSearchUsername'];
 
         if ($inputSearchUsername == "") {
             $inputSearchUsername = '%';
         }
     }
-    
-    if(isset($_POST['inputSearchEmail'])) {
+
+    if (isset($_POST['inputSearchEmail'])) {
         $inputSearchEmail = $_POST['inputSearchEmail'];
 
         if ($inputSearchEmail == "") {
@@ -71,7 +71,6 @@ if (isset($_GET['userId'])) {
     header('Location: ./index.php');
 }
 
-
 // Query to populate table with files
 $sqlTable = "SELECT    `user`.`UserId`,
                             `country`.`FormattedName`,
@@ -101,66 +100,66 @@ $conn->close();
                     <!-- Search Country -->
                     <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchCountry" name="inputSearchCountry" value="<?php
-                                    // Setting serchbox to empty if theres no chars in it
-                                    if (isset($_POST['inputSearchCountry'])) {
-                                        if ($inputSearchCountry == '%') {
-                                            echo '';
-                                        } else {
-                                            echo $inputSearchCountry;
-                                        }
-                                    }
-                                    ?>" placeholder="País">
+// Setting serchbox to empty if theres no chars in it
+if (isset($_POST['inputSearchCountry'])) {
+    if ($inputSearchCountry == '%') {
+        echo '';
+    } else {
+        echo $inputSearchCountry;
+    }
+}
+?>" placeholder="País">
                     </div>
 
                     <!-- Search Name -->
                     <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchName" name="inputSearchName" value="<?php
-                                    // Setting serchbox to empty if theres no chars in it
-                                    if (isset($_POST['inputSearchName'])) {
-                                        if ($inputSearchName == '%') {
-                                            echo '';
-                                        } else {
-                                            echo $inputSearchName;
-                                        }
-                                    }
-                                    ?>" placeholder="Nome">
+// Setting serchbox to empty if theres no chars in it
+if (isset($_POST['inputSearchName'])) {
+    if ($inputSearchName == '%') {
+        echo '';
+    } else {
+        echo $inputSearchName;
+    }
+}
+?>" placeholder="Nome">
                     </div>
 
                     <!-- Search Username -->
                     <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchUsername" name="inputSearchUsername" value="<?php
-                                // Setting serchbox to empty if theres no chars in it
-                                if (isset($_POST['inputSearchUsername'])) {
-                                    if ($inputSearchUsername == '%') {
-                                        echo '';
-                                    } else {
-                                        echo $inputSearchUsername;
-                                    }
-                                }
-                                ?>" placeholder="Nome de utilizador">
+// Setting serchbox to empty if theres no chars in it
+if (isset($_POST['inputSearchUsername'])) {
+    if ($inputSearchUsername == '%') {
+        echo '';
+    } else {
+        echo $inputSearchUsername;
+    }
+}
+?>" placeholder="Nome de utilizador">
                     </div>
 
                     <!-- Search Email -->
                     <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchEmail" name="inputSearchEmail" value="<?php
-                                    // Setting serchbox to empty if theres no chars in it
-                                    if (isset($_POST['inputSearchEmail'])) {
-                                        if ($inputSearchEmail == '%') {
-                                            echo '';
-                                        } else {
-                                            echo $inputSearchEmail;
-                                        }
-                                    }
-                                    ?>" placeholder="Email">
+// Setting serchbox to empty if theres no chars in it
+if (isset($_POST['inputSearchEmail'])) {
+    if ($inputSearchEmail == '%') {
+        echo '';
+    } else {
+        echo $inputSearchEmail;
+    }
+}
+?>" placeholder="Email">
                     </div>
                 </div>
             </form>
 
             <div class="col-md-12">
-                <!-- <div class="bg-primary border-secondary"> -->
 
-                    <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark mb-0">
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>UserId</th>
@@ -194,14 +193,13 @@ $conn->close();
                                     <a href="./index-edit.php?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
                                 <td>
-                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger" 
-                                        onclick="return confirm('Tem a certeza que quer desativar este utilizador?')">Eliminar</a>
+                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar este utilizador?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
                         </tbody>
                     </table>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>

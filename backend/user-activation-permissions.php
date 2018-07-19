@@ -73,7 +73,7 @@ if (isset($_GET['userId'])) {
     $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId";
     $conn->query($sqlDeactivateUser);
 
-    header('Location: ./index.php');
+    header('Location: ./user-activation-permissions.php');
 }
 
 
@@ -133,7 +133,7 @@ $conn->close();
                     <!-- Search Admin -->
                     <div class="col-md-3">
                         <select class="form-control text-center" id="inputSearchAdmin" name="inputSearchAdmin" required>
-                                    
+
                             <option selected>
                                 <?php 
                                     if (isset($_POST['inputSearchAdmin'])) {
@@ -146,7 +146,7 @@ $conn->close();
                                         echo 'Utilizador';
                                     }
                                 ?>
-                                </option>
+                            </option>
 
                             <option>
                                 <?php 
@@ -168,8 +168,8 @@ $conn->close();
                     <!-- Search Active -->
                     <div class="col-md-3">
                         <select class="form-control text-center" id="inputSearchActive" name="inputSearchActive" required>
-                                        
-                        <option selected>
+
+                            <option selected>
                                 <?php 
                                     if (isset($_POST['inputSearchActive'])) {
                                         if ($inputSearchActive == 1) {
@@ -203,11 +203,10 @@ $conn->close();
             </form>
 
             <div class="col-md-12">
-                <!-- <div class="bg-primary border-secondary"> -->
 
-                    <!-- TODO: fix table having a gap on the right side-->
-                    <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark mb-0">
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>UserId</th>
@@ -259,7 +258,7 @@ $conn->close();
                             <?php endwhile;?>
                         </tbody>
                     </table>
-                <!-- </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -277,9 +276,9 @@ $conn->close();
 
     $(document).ready(() => {
         // hide button if search == not active
-        if($("#inputSearchActive").val() == "Não ativo"){
+        if ($("#inputSearchActive").val() == "Não ativo") {
             $("#buttonDelete").hide();
-        } else{
+        } else {
             $("#buttonDelete").show();
         }
 

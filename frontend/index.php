@@ -33,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Nenhum ficheiro selecionado</div>';
         }
-    } else if(isset($_POST['inputSearch'])) {
+    } else if (isset($_POST['inputSearch'])) {
         // Search bar form post
         $inputSearch = $_POST['inputSearch'];
-        
-        if($inputSearch == "") {
+
+        if ($inputSearch == "") {
             $inputSearch = '%';
         }
     }
@@ -60,13 +60,13 @@ if (isset($inputSearch)) {
 }
 
 // Query to populate table with files
-$sqlTableFiles = "SELECT    `UploadId`, 
-                            `FileName` , 
+$sqlTableFiles = "SELECT    `UploadId`,
+                            `FileName` ,
                             `Path`
                     FROM `upload`
                     WHERE `Active` = 1
                     AND `FileName` LIKE '%$searchTerm%'
-                    AND `UserId` = $userId 
+                    AND `UserId` = $userId
                     ORDER BY `UploadId` DESC";
 $resultTableFiles = $conn->query($sqlTableFiles);
 
@@ -89,17 +89,16 @@ $conn->close();
             <!-- Search form -->
             <div class="col-md-12 mb-5">
                 <form method="POST" action="" id="formSearch">
-                    <input class="form-control text-center" type="text" id="inputSearch" name="inputSearch" 
-                        value="<?php
-                                // Setting serchbox to empty if theres no chars in it 
-                                if (isset($_POST['inputSearch'])) { 
-                                    if($inputSearch == '%'){
-                                        echo '';
-                                    } else {
-                                        echo $inputSearch;
-                                    }
-                                }
-                                ?>" placeholder="Procurar...">
+                    <input class="form-control text-center" type="text" id="inputSearch" name="inputSearch" value="<?php
+// Setting serchbox to empty if theres no chars in it
+if (isset($_POST['inputSearch'])) {
+    if ($inputSearch == '%') {
+        echo '';
+    } else {
+        echo $inputSearch;
+    }
+}
+?>" placeholder="Procurar...">
                 </form>
             </div>
 
@@ -107,33 +106,33 @@ $conn->close();
                 <div class="bg-primary border-secondary">
 
                     <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark">
-                        <thead class="thead-light">
-                            <tr>
-                                <th class="text-center" colspan="3">Ficheiros</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Populate table with files -->
-                            <?php while ($rowTableFiles = $resultTableFiles->fetch_assoc()): ?>
-                            <tr>
-                                <td width="70%">
-                                    <?php echo $rowTableFiles['FileName'] ?>
-                                </td>
-                                <td>
-                                    <!-- Sending file name ('name') and upload id ('id')  -->
-                                    <a href="<?php echo './../uploads/' . $rowTableFiles['Path'] ?>"
-                                        class="btn btn-success" download> Descarregar</a>
-                                </td>
-                                <td>
-                                    <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>"
-                                        onclick="return confirm('Tem a certeza que quer eliminar este ficheiro?')"
-                                        class="btn btn-danger">Eliminar</a>
-                                </td>
-                            </tr>
-                            <?php endwhile;?>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-dark">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-center" colspan="3">Ficheiros</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populate table with files -->
+                                <?php while ($rowTableFiles = $resultTableFiles->fetch_assoc()): ?>
+                                <tr>
+                                    <td width="70%">
+                                        <?php echo $rowTableFiles['FileName'] ?>
+                                    </td>
+                                    <td>
+                                        <!-- Sending file name ('name') and upload id ('id')  -->
+                                        <a href="<?php echo './../uploads/' . $rowTableFiles['Path'] ?>" class="btn btn-success" download> Descarregar</a>
+                                    </td>
+                                    <td>
+                                        <a href="?uploadId=<?php echo $rowTableFiles['UploadId'] ?>" onclick="return confirm('Tem a certeza que quer eliminar este ficheiro?')"
+                                            class="btn btn-danger">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <?php endwhile;?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

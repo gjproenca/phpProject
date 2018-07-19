@@ -103,8 +103,7 @@ $conn->close();
 
                     <!-- Search Name -->
                     <div class="col-md-3">
-                        <input class="form-control text-center" type="text" id="inputSearchName" name="inputSearchName"
-                            value="<?php
+                        <input class="form-control text-center" type="text" id="inputSearchName" name="inputSearchName" value="<?php
                                     // Setting serchbox to empty if theres no chars in it
                                     if (isset($_POST['inputSearchName'])) {
                                         if ($inputSearchName == '%') {
@@ -130,8 +129,8 @@ $conn->close();
                                     ?>" placeholder="Email">
                     </div>
 
-                     <!-- Search Subject -->
-                     <div class="col-md-3">
+                    <!-- Search Subject -->
+                    <div class="col-md-3">
                         <input class="form-control text-center" type="text" id="inputSearchSubject" name="inputSearchSubject" value="<?php
                                 // Setting serchbox to empty if theres no chars in it
                                 if (isset($_POST['inputSearchSubject'])) {
@@ -185,9 +184,9 @@ $conn->close();
             <div class="col-md-12">
                 <!-- <div class="bg-primary border-secondary"> -->
 
-                    <!-- TODO: fix table having a gap on the right side-->
-                    <!-- Table -->
-                    <table class="table table-responsive table-hover table-dark mb-0">
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark mb-0">
                         <thead class="thead-light">
                             <tr>
                                 <th>MessageId</th>
@@ -228,17 +227,17 @@ $conn->close();
                                     ?>
                                 </td>
                                 <td>
-                                <!-- TODO: response page -->
+                                    <!-- TODO: response page -->
                                     <a href="./messages-public-response.php?messageId=<?php echo $rowTable['MessageId']; ?>" class="btn btn-warning">Responder</a>
                                 </td>
                                 <td>
-                                    <a id="buttonDelete" href="?messageId=<?php echo $rowTable['MessageId']; ?>" class="btn btn-danger"
-                                        onclick="return confirm('Tem a certeza que quer desativar esta mensagem?')">Eliminar</a>
+                                    <a id="buttonDelete" href="?messageId=<?php echo $rowTable['MessageId']; ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar esta mensagem?')">Eliminar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>
                         </tbody>
                     </table>
+                </div>
                 <!-- </div> -->
             </div>
         </div>
@@ -257,25 +256,25 @@ $conn->close();
 
     $(document).ready(() => {
         // hide button if search == not active
-        if($("#inputSearchActive").val() == "Não ativo"){
-            $("#buttonDelete").hide();
-        } else{
-            $("#buttonDelete").show();
+        if ($("#inputSearchActive").val() == "Não ativo") {
+            $("#buttonDelete").prop("hidden", true);
+        } else {
+            $("#buttonDelete").prop("hidden", false);
         }
-        
+
         // submit form after user finished pressing keys for 1 second
         $("#inputSearchName").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();
             }, 1000);
         });
-        
+
         $("#inputSearchEmail").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();
             }, 1000);
         });
-        
+
         $("#inputSearchSubject").keyup(() => {
             delay(function () {
                 $("#formSearch").submit();
@@ -287,7 +286,7 @@ $conn->close();
                 $("#formSearch").submit();
             }, 1000);
         });
-        
+
     });
 </script>
 
