@@ -64,8 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $mail->Body = 'Obrigado por continuar a utilizar os nossos servicos,
                     <br />
                     <br />
-                    A sua nova senha é: ' . $tempPassword . '
-                    <br />
+                    A sua nova senha é: ' . $tempPassword . '<br />
                     <br />
                     Por favor, quando entrar não se esqueca de atualizar a mesma para uma à sua escolha.
                     <br />
@@ -119,8 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $mail->Body = 'Obrigado por continuar a utilizar os nossos servicos,
                     <br />
                     <br />
-                    A sua nova senha é: ' . $tempPassword . '
-                    <br />
+                    A sua nova senha é: ' . $tempPassword . '<br />
                     <br />
                     Por favor, quando entrar não se esqueca de atualizar a mesma para uma à sua escolha.
                     <br />
