@@ -230,7 +230,9 @@ $conn->close();
                                     <a href="./messages-frontend-response.php?messageUserId=<?php echo $rowTable['MessageUserId']; ?>" class="btn btn-warning">Responder</a>
                                 </td>
                                 <td>
-                                    <a id="buttonDelete" href="?messageUserId=<?php echo $rowTable['MessageUserId']; ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar esta mensagem?')">Eliminar</a>
+                                    <?php if($rowTable['Active'] == 1): ?>
+                                        <a id="buttonDelete" href="?messageUserId=<?php echo $rowTable['MessageUserId']; ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar esta mensagem?')">Eliminar</a>
+                                    <?php endif ?>
                                 </td>
                             </tr>
                             <?php endwhile;?>
@@ -253,13 +255,6 @@ $conn->close();
     })();
 
     $(document).ready(() => {
-        // hide button if search == not active
-        if ($("#inputSearchActive").val() == "Não ativo") {
-            $("#buttonDelete").prop("hidden", true);
-        } else {
-            $("#buttonDelete").prop("hidden", false);
-        }
-
         // submit form after user finished pressing keys for 1 second
         $("#inputSearchUsername").keyup(() => {
             delay(function () {

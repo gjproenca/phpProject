@@ -267,11 +267,11 @@ $conn->close();
     $(document).ready(() => {
         // hide button if search == not active
         if ($("#inputSearchActive").val() == "Não ativo") {
-            $("#buttonRestore").prop("hidden", false);
-            $("#buttonDelete").prop("hidden", true);
+            $(".btn-warning").prop("hidden", false);
+            $(".btn-danger").prop("hidden", true);
         } else {
-            $("#buttonRestore").prop("hidden", true);
-            $("#buttonDelete").prop("hidden", false);
+            $(".btn-warning").prop("hidden", true);
+            $(".btn-danger").prop("hidden", false);
         }
 
         // submit form after user finished pressing keys for 1 second

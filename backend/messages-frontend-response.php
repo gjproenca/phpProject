@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 465;
         $mail->isHTML(false);
+        $mail->CharSet = "UTF-8";
         $mail->Username = 'webwarehouse13@gmail.com';
         $mail->Password = 'Ab-123456';
         $mail->setFrom('webwarehouse13@gmail.com', 'Webware');

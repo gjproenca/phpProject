@@ -69,15 +69,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Host = 'smtp.gmail.com';
             $mail->Port = 465;
             $mail->isHTML(true);
+            $mail->CharSet = "UTF-8";
             $mail->Username = 'webwarehouse13@gmail.com';
             $mail->Password = 'Ab-123456';
             $mail->setFrom('webwarehouse13@gmail.com', 'Webware');
             $mail->addReplyTo('webwarehouse13@gmail.com', 'Webware');
             $mail->Subject = 'Bem Vindo';
-            $mail->Body = 'Obrigado pelo seu registo, 
+            $mail->Body = 'Obrigado pelo seu registo ' . $postName . ', 
             <br />
             <br />
-            Por favor aguarde até que um dos nossos administradores ative a sua conta.
+            por favor aguarde até que um dos nossos administradores ative a sua conta.
+            <br />
+            Irá receber um email de confirmação do mesmo.
             <br />
             <br />
             Obrigado,

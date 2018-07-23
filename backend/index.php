@@ -192,9 +192,6 @@ if (isset($_POST['inputSearchEmail'])) {
                                 <td>
                                     <a href="./index-edit.php?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
-                                <td>
-                                    <a href="?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-danger" onclick="return confirm('Tem a certeza que quer desativar este utilizador?')">Eliminar</a>
-                                </td>
                             </tr>
                             <?php endwhile;?>
                         </tbody>
