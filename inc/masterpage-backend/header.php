@@ -2,8 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["adminId"])) {
-    // TODO: redirect to error page
-    header('Location: ./../index.php');
+    header('Location: ./../index.php?index');
 }
 ?>
 
