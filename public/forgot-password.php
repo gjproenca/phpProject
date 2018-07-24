@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($resultAdmin == 1) {
             if ($resultActive == 1) {
                 try {
-                    $sql = "INSERT INTO `user` SET `Password` = '$hashPassword'  WHERE `Email` LIKE '$postEmail'";
+                    $sql = "INSERT INTO `user` SET `Password` = '$hashPassword', ´Modified´ = NOW(3) WHERE `Email` LIKE '$postEmail'";
                     @$query = $conn->query($sql);
 
                     include './../resources/PHPMailer/PHPMailerAutoload.php';

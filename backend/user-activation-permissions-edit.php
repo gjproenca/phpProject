@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         WHERE   `UserId` = $userId";
 
         if ($conn->query($sqlUpdate) === true) {
-            header('Location: ./user-activation-permissions.php');
+            header('Location: ./user-activation-permissions.php?user-activation-permissions');
             // echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
             //     Atualização efetuada com sucesso</div>';
         } else {

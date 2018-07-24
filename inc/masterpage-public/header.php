@@ -32,11 +32,11 @@
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav">
                     <li class="nav-item">
-                            <a class="nav-link" href="./../public/about.php">
+                            <a class="nav-link <?php if(isset($_GET['about'])) echo 'active'; ?>" href="./../public/about.php?about">
                                 <i class="fa fa-drivers-license-o"></i> Acerca</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./../public/contacts.php">
+                            <a class="nav-link <?php if(isset($_GET['contacts'])) echo 'active'; ?>" href="./../public/contacts.php?contacts">
                                 <i class="fa fa-envelope"></i> Contactos</a>
                         </li>
                     </ul>

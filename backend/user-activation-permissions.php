@@ -73,7 +73,7 @@ if (isset($_GET['userId'])) {
     $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0, `Modified` = NOW(3) WHERE `UserId` = $userId";
     $conn->query($sqlDeactivateUser);
 
-    header('Location: ./user-activation-permissions.php');
+    header('Location: ./user-activation-permissions.php?user-activation-permissions');
 }
 
 

@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente</div>';
         } else if ($conn->query($sqlUpdate) === true) {
-            header('Location: ./index.php');
+            header('Location: ./index.php?index');
             // echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
             //     Atualização efetuada com sucesso</div>';
         } else {

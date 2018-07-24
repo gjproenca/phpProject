@@ -71,7 +71,7 @@ if (isset($_GET['messageUserId'])) {
     $sqlDeleteUpload = "UPDATE `messagefrontend` SET `Active` = 0, `Modified` = NOW(3) WHERE `MessageUserId` = $messageIdDelete";
     $conn->query($sqlDeleteUpload);
 
-    header('Location: ./messages-frontend.php');
+    header('Location: ./messages-frontend.php?messages-frontend');
 }
 
 // Query to populate table with files
@@ -227,7 +227,7 @@ $conn->close();
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="./messages-frontend-response.php?messageUserId=<?php echo $rowTable['MessageUserId']; ?>" class="btn btn-warning">Responder</a>
+                                    <a href="./messages-frontend-response.php?messages-frontend&messageUserId=<?php echo $rowTable['MessageUserId']; ?>" class="btn btn-warning">Responder</a>
                                 </td>
                                 <td>
                                     <?php if($rowTable['Active'] == 1): ?>

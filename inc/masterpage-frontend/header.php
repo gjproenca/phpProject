@@ -35,22 +35,22 @@ if (!isset($_SESSION["userId"])) {
 
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="./../frontend/index.php">Webware</a>
+                <a class="navbar-brand" href="./../frontend/index.php?index">Webware</a>
                 <a class="navbar-toggler navbar-toggler-right" type="a" data-toggle="collapse" data-target="#navbar2SupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </a>
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="./../frontend/index.php">
+                            <a class="nav-link <?php if(isset($_GET['index'])) echo 'active'; ?>" href="./../frontend/index.php?index">
                                 <i class="fa fa-file"></i> Ficheiros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./../frontend/edit-account.php">
+                            <a class="nav-link <?php if(isset($_GET['edit-account'])) echo 'active'; ?>" href="./../frontend/edit-account.php?edit-account">
                                 <i class="fa fa-user"></i> Conta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./../frontend/contact-us.php">
+                            <a class="nav-link <?php if(isset($_GET['contact-us'])) echo 'active'; ?>" href="./../frontend/contact-us.php?contact-us">
                                 <i class="fa fa-envelope"></i> Contactos</a>
                         </li>
                     </ul>

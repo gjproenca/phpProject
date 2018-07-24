@@ -70,7 +70,7 @@ if (isset($_GET['uploadIdDelete'])) {
     $sqlDeleteUpload = "UPDATE `upload` SET `Active` = 0, `Modified` = NOW(3) WHERE `UploadId` = $uploadIdDelete";
     $conn->query($sqlDeleteUpload);
 
-    header('Location: ./uploads.php');
+    header('Location: ./uploads.php?uploads');
 }
 
 // Set active to 1 in databse
@@ -79,7 +79,7 @@ if (isset($_GET['uploadIdRestore'])) {
     $sqlRestoreUpload = "UPDATE `upload` SET `Active` = 1, `Modified` = NOW(3) WHERE `UploadId` = $uploadIdRestore";
     $conn->query($sqlRestoreUpload);
 
-    header('Location: ./uploads.php');
+    header('Location: ./uploads.php?uploads');
 }
 
 // Query to populate table with files

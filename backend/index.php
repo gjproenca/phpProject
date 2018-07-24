@@ -68,7 +68,7 @@ if (isset($_GET['userId'])) {
     $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId";
     $conn->query($sqlDeactivateUser);
 
-    header('Location: ./index.php');
+    header('Location: ./index.php?index');
 }
 
 // Query to populate table with files

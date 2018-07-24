@@ -71,7 +71,7 @@ if (isset($_GET['messageId'])) {
     $sqlDeleteUpload = "UPDATE `messagepublic` SET `Active` = 0, `Modified` = NOW(3) WHERE `MessageId` = $messageIdDelete";
     $conn->query($sqlDeleteUpload);
 
-    header('Location: ./messages-public.php');
+    header('Location: ./messages-public.php?messages-public');
 }
 
 // Query to populate table with files
@@ -227,7 +227,7 @@ $conn->close();
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="./messages-public-response.php?messageId=<?php echo $rowTable['MessageId']; ?>" class="btn btn-warning">Responder</a>
+                                    <a href="./messages-public-response.php?messages-public&messageId=<?php echo $rowTable['MessageId']; ?>" class="btn btn-warning">Responder</a>
                                 </td>
                                 <td>
                                     <?php  if($rowTable['Active'] == 1): ?>
