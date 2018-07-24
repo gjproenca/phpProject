@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Set active to 0 in databse
 if (isset($_GET['uploadId'])) {
     $uploadId = $_GET['uploadId'];
-    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = $uploadId";
+    $sqlTableFiles = "UPDATE `upload` SET `Active` = 0, `Modified` = NOW(3) WHERE `UploadId` = $uploadId";
     $resultTableFiles = $conn->query($sqlTableFiles);
 
     header('Location: ./index.php');

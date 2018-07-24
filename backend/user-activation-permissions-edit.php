@@ -29,8 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Update query
         $sqlUpdate = "UPDATE   `user`
                         SET     `Admin` = $admin,
-                                `Active` = $active
-                        WHERE   UserId = $userId";
+                                `Active` = $active,
+                                `Modified` = NOW(3)
+                        WHERE   `UserId` = $userId";
 
         if ($conn->query($sqlUpdate) === true) {
             header('Location: ./user-activation-permissions.php');

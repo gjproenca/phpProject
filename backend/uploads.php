@@ -67,7 +67,7 @@ if (isset($inputSearchEmail)) {
 // Set active to 0 in databse
 if (isset($_GET['uploadIdDelete'])) {
     $uploadIdDelete = $_GET['uploadIdDelete'];
-    $sqlDeleteUpload = "UPDATE `upload` SET `Active` = 0 WHERE `UploadId` = $uploadIdDelete";
+    $sqlDeleteUpload = "UPDATE `upload` SET `Active` = 0, `Modified` = NOW(3) WHERE `UploadId` = $uploadIdDelete";
     $conn->query($sqlDeleteUpload);
 
     header('Location: ./uploads.php');
@@ -76,7 +76,7 @@ if (isset($_GET['uploadIdDelete'])) {
 // Set active to 1 in databse
 if (isset($_GET['uploadIdRestore'])) {
     $uploadIdRestore = $_GET['uploadIdRestore'];
-    $sqlRestoreUpload = "UPDATE `upload` SET `Active` = 1 WHERE `UploadId` = $uploadIdRestore";
+    $sqlRestoreUpload = "UPDATE `upload` SET `Active` = 1, `Modified` = NOW(3) WHERE `UploadId` = $uploadIdRestore";
     $conn->query($sqlRestoreUpload);
 
     header('Location: ./uploads.php');

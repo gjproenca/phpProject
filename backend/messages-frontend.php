@@ -68,7 +68,7 @@ if (isset($inputSearchActive)) {
 // Set active to 0 in databse
 if (isset($_GET['messageUserId'])) {
     $messageIdDelete = $_GET['messageUserId'];
-    $sqlDeleteUpload = "UPDATE `messagefrontend` SET `Active` = 0 WHERE `MessageUserId` = $messageIdDelete";
+    $sqlDeleteUpload = "UPDATE `messagefrontend` SET `Active` = 0, `Modified` = NOW(3) WHERE `MessageUserId` = $messageIdDelete";
     $conn->query($sqlDeleteUpload);
 
     header('Location: ./messages-frontend.php');

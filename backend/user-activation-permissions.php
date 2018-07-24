@@ -70,7 +70,7 @@ if (isset($inputSearchActive)) {
 // Set active to 0 in databse
 if (isset($_GET['userId'])) {
     $userId = $_GET['userId'];
-    $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId";
+    $sqlDeactivateUser = "UPDATE `user` SET `Active` = 0, `Modified` = NOW(3) WHERE `UserId` = $userId";
     $conn->query($sqlDeactivateUser);
 
     header('Location: ./user-activation-permissions.php');

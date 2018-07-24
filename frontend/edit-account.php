@@ -37,13 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         AND `userId` != $userId";
         @$queryUsername = $conn->query($sqlUsername);
 
-        // Regiter query
+        // Edit query
         $sqlRegisto = "UPDATE   `user`
                         SET     `CountryId` = $resultCountryId,
                                 `Name` = '$postName',
                                 `Username` = '$postUsername',
                                 `Password` = '$hashPassword',
-                                `Email` = '$postEmail'
+                                `Email` = '$postEmail',
+                                `Modified` = NOW(3)
                         WHERE   UserId = $userId";
 
         if ($postPassword !== $postConfirmPassword) {
@@ -54,15 +55,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Falha ao verificar o nome de utilizador, por favor tente mais tarde</div>';
         } else if ($queryUsername->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Nome de utilizador já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+                Nome de utilizador já existente</div>';
         } else if ($querySqlEmail === false) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao verificar email, por favor tente mais tarde</div>';
         } else if ($querySqlEmail->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+                Email já existente</div>';
         } else if (isset($_POST['deleteAccount'])) {
-            $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0 WHERE `UserId` = $userId;";
+            $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0, `Modified` = NOW(3) WHERE `UserId` = $userId;";
 
             // verify correct password
             $sqlVerifyPassword = "SELECT `Password` FROM `user` WHERE `UserId` = $userId";

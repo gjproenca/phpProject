@@ -68,7 +68,7 @@ if (isset($inputSearchActive)) {
 // Set active to 0 in databse
 if (isset($_GET['messageId'])) {
     $messageIdDelete = $_GET['messageId'];
-    $sqlDeleteUpload = "UPDATE `messagepublic` SET `Active` = 0 WHERE `MessageId` = $messageIdDelete";
+    $sqlDeleteUpload = "UPDATE `messagepublic` SET `Active` = 0, `Modified` = NOW(3) WHERE `MessageId` = $messageIdDelete";
     $conn->query($sqlDeleteUpload);
 
     header('Location: ./messages-public.php');

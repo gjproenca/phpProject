@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Set active to 0 in databse
         if (isset($_GET['messageId'])) {
-            $sqlDeleteUpload = "UPDATE `messagepublic` SET `Active` = 0 WHERE `MessageId` = $messageId";
+            $sqlDeleteUpload = "UPDATE `messagepublic` SET `Active` = 0, `Modified` = NOW(3) WHERE `MessageId` = $messageId";
         }
 
         include './../resources/PHPMailer/PHPMailerAutoload.php';

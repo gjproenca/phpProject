@@ -39,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         SET     `CountryId` = $resultCountryId,
                                 `Name` = '$postName',
                                 `Username` = '$postUsername',
-                                `Email` = '$postEmail'
+                                `Email` = '$postEmail',
+                                `Modified` = NOW(3)
                         WHERE   UserId = $userId";
 
         if ($queryUsername === false) {
@@ -47,13 +48,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Falha ao verificar o nome de utilizador, por favor tente mais tarde</div>';
         } else if ($queryUsername->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Nome de utilizador já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+                Nome de utilizador já existente</div>';
         } else if ($querySqlEmail === false) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao verificar email, por favor tente mais tarde</div>';
         } else if ($querySqlEmail->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Email já existente, se se esqueceu da senha e quiser recuperá-la, clique em \'Recuperar senha\'</div>';
+                Email já existente</div>';
         } else if ($conn->query($sqlUpdate) === true) {
             header('Location: ./index.php');
             // echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
