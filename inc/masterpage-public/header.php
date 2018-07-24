@@ -25,13 +25,17 @@
     <div>
         <nav class="navbar navbar-expand-md bg-primary navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="./../public/index.php">Webware</a>
+                <a class="navbar-brand" href="./../public/index.php?index">Webware</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                     <ul class="navbar-nav">
-                    <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link <?php if(isset($_GET['index'])) echo 'active'; ?>" href="./../public/index.php?index">
+                                <i class="fa fa-home"></i> Início</a>
+                        </li>
+                        <li>
                             <a class="nav-link <?php if(isset($_GET['about'])) echo 'active'; ?>" href="./../public/about.php?about">
                                 <i class="fa fa-drivers-license-o"></i> Acerca</a>
                         </li>
