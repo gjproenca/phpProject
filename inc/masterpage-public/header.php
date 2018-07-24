@@ -35,7 +35,7 @@
                             <a class="nav-link <?php if(isset($_GET['index'])) echo 'active'; ?>" href="./../public/index.php?index">
                                 <i class="fa fa-home"></i> Início</a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             <a class="nav-link <?php if(isset($_GET['about'])) echo 'active'; ?>" href="./../public/about.php?about">
                                 <i class="fa fa-drivers-license-o"></i> Acerca</a>
                         </li>
