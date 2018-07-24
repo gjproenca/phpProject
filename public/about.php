@@ -1,6 +1,6 @@
 <?php include './../inc/masterpage-public/header.php';?>
 
-<div class="py-5 text-center" style="background-image: url(./../resources/images/about.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+<div class="py-5 text-center" style="background-image: url(./../resources/images/about.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center; background-attachment: fixed;">
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
