@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Mensagem enviada com sucesso</div>';
         } else {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                Não foi possível enviar a mensagem</div>';
+                Não foi possível enviar a mensagem, por favor tente mais tarde</div>';
         }
     }
 }
@@ -170,7 +170,7 @@ $conn->close();
                             <button class="btn btn-dark text-white col-md-12" name="reset" id="reset" type="reset">Limpar</button>
                             <br />
                             <br />
-                            <a class="btn btn-dark text-white col-md-12" href="./messages-public.php">Cancelar</a>
+                            <a class="btn btn-dark text-white col-md-12" href="./messages-public.php?messages-public">Cancelar</a>
                         </form>
                     </div>
                 </div>
