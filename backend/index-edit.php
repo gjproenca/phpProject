@@ -197,7 +197,7 @@ $conn->close();
                             <button class="btn btn-dark text-white col-12" name="reset" id="reset" type="reset">Limpar</button>
                             <br />
                             <br />
-                            <a class="btn btn-dark text-white col-12" href="./index.php">Cancelar</a>
+                            <a class="btn btn-dark text-white col-12" href="./index.php?index">Cancelar</a>
                         </form>
                     </div>
                 </div>
