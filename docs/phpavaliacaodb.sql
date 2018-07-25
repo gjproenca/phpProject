@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 10:33 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Jul 25, 2018 at 12:24 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -359,7 +359,7 @@ INSERT INTO `user` (`UserId`, `CountryId`, `Name`, `Username`, `Password`, `Emai
 (1, 225, 'administrador', 'administrador', '5e7951aa8f403ff16d0cd453e7d86ee0c99ce5319e01836333b6ba398a20494d7f3e76397e3d99e8fc4702ba7cfd7600d453958c755000cc31ce0150ac819f9e', 'administrador@gmail.com', b'1', b'1', '2018-07-02 10:12:36.499', '2018-07-02 10:12:36.499'),
 (2, 225, 'administradorNaoAtivo', 'administradorNaoAtivo', '7994bab67765ad68505b06315ee238d65c534c67ac19b5e792dd6a2d1fa55776afd4b49b98b74cacc2ba60c0b30e2ce383ca668340619ecf17119bf1cf8b0b3e', 'administradorNaoAtivo@gmail.com', b'1', b'0', '2018-07-02 10:13:05.227', '2018-07-02 10:13:05.227'),
 (3, 225, 'utilizador', 'utilizador', '83431bfcf491f79b37de2c8339d3b7c4cfee45b7a60b9eeb0aad26f47fd76a5eaa1bcfa0d55253ddcbb45f55548db4c1b4572d9d6ec0efbdf9ff524a959aa2d1', 'utilizador@gmail.com', b'0', b'1', '2018-07-02 10:13:24.996', '2018-07-02 10:13:24.996'),
-(4, 225, 'utilizadorNaoAtivo', 'utilizadorutilizadorNaoAtivo', '13555d4d97810f2633c563a7798bf7758d554e6d9daf48eba73940004593073fd93acd5c42bd894bbd20274868bc90dc263d1da1d23271eafd1f0b4034f4d221', 'utilizadorNaoAtivo@gmail.com', b'0', b'0', '2018-07-02 10:13:46.573', '2018-07-02 10:13:46.573');
+(4, 225, 'utilizadorNaoAtivo', 'utilizadorNaoAtivo', '13555d4d97810f2633c563a7798bf7758d554e6d9daf48eba73940004593073fd93acd5c42bd894bbd20274868bc90dc263d1da1d23271eafd1f0b4034f4d221', 'utilizadorNaoAtivo@gmail.com', b'0', b'0', '2018-07-02 10:13:46.573', '2018-07-02 10:13:46.573');
 
 --
 -- Indexes for dumped tables
