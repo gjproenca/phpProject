@@ -62,24 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($querySqlEmail->num_rows == 1) {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Email já existente</div>';
-        } else if (isset($_POST['deleteAccount'])) {
-            $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0, `Modified` = NOW(3) WHERE `UserId` = $userId;";
-
-            // verify correct password
-            $sqlVerifyPassword = "SELECT `Password` FROM `user` WHERE `UserId` = $userId";
-            $resultVerifyPassword = $conn->query($sqlVerifyPassword)->fetch_assoc();
-
-            if ($resultVerifyPassword['Password'] == $hashPassword) {
-                if ($conn->query($sqlDeleteAccount) == true) {
-                    header("Location: ./signout.php");
-                } else {
-                    echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                        Falha ao apagar conta, por favor tente mais tarde</div>';
-                }
-            } else {
-                echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
-                    Senha errada</div>';    
-            }
         } else if ($conn->query($sqlRegisto) === true) {
             echo '<div class="alert alert-success mb-0 rounded-0 text-center" role="alert">
                 Atualização efetuada com sucesso</div>';
@@ -87,6 +69,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                 Falha ao atualizar, por favor tente mais tarde</div>';
         }
+    }
+}
+
+// Delete account - set active to 0 in database
+if (isset($_GET['deleteAccount'])) {
+    $sqlDeleteAccount = "UPDATE `user` SET `Active` = 0, `Modified` = NOW(3) WHERE `UserId` = $userId;";
+
+    if ($conn->query($sqlDeleteAccount) == true) {
+        header("Location: ./signout.php");
+    } else {
+        echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
+                    Falha ao apagar conta, por favor tente mais tarde</div>';
     }
 }
 
@@ -243,8 +237,8 @@ if (isset($postCountry)) {
                             <br />
                             <br />
                             <br />
-                            <button class="btn btn-dark text-white float-sm-right col-md-12"
-                                name="deleteAccount" id="deleteAccount" type="submit" onclick="return confirm('Tem a certeza que quer apagar a conta?')">Apagar conta</button>
+                            <a class="btn btn-dark text-white float-sm-right col-md-12" href="?edit-account&deleteAccount"
+                                name="deleteAccount" id="deleteAccount" onclick="return confirm('Tem a certeza que quer apagar a conta?')">Apagar conta</a>
                         </form>
                     </div>
                 </div>
