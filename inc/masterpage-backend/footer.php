@@ -8,15 +8,15 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <a href="./../backend/index.php" class="text-white">Início</a>
+                        <a href="./../backend/index.php?index" class="text-white">Início</a>
                         <br>
-                        <a href="./../backend/uploads.php" class="text-white">Ficheiros</a>
+                        <a href="./../backend/uploads.php?uploads" class="text-white">Ficheiros</a>
                         <br>
-                        <a href="./../backend/messages-frontend.php" class="text-white">Mensagens utilizador</a>
+                        <a href="./../backend/messages-frontend.php?messages-frontend" class="text-white">Mensagens utilizador</a>
                         <br>
-                        <a href="./../backend/messages-public.php" class="text-white">Mensagens públicas</a>
+                        <a href="./../backend/messages-public.php?messages-public" class="text-white">Mensagens públicas</a>
                         <br>
-                        <a href="./../backend/user-activation-permissions.php" class="text-white">Permissões/Ativar utiizadores</a>
+                        <a href="./../backend/user-activation-permissions.php?user-activation-permissions" class="text-white">Permissões/Ativar utiizadores</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">

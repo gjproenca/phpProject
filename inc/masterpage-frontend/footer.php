@@ -8,11 +8,11 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <a href="./../frontend/index.php" class="text-white">Ficheiros</a>
+                        <a href="./../frontend/index.php?index" class="text-white">Ficheiros</a>
                         <br>
-                        <a href="./../frontend/edit-account.php" class="text-white">Conta</a>
+                        <a href="./../frontend/edit-account.php?edit-account" class="text-white">Conta</a>
                         <br>
-                        <a href="./../frontend/contact-us.php" class="text-white">Contactos</a>
+                        <a href="./../frontend/contact-us.php?contact-us" class="text-white">Contactos</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">

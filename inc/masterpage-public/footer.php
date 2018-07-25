@@ -8,15 +8,15 @@
                 <div class="mt-4 col-md-4">
                     <h2 class="mb-4 text-secondary">Mapa</h2>
                     <ul class="list-unstyled">
-                        <a href="./../public/index.php" class="text-white">Início</a>
+                        <a href="./../public/index.php?index" class="text-white">Início</a>
                         <br>
                         <a href="./../public/sign-in.php" class="text-white">Entrar</a>
                         <br>
                         <a href="./../public/sign-up.php" class="text-white">Registar</a>
                         <br>
-                        <a href="./../public/contacts.php" class="text-white">Contactos</a>
+                        <a href="./../public/contacts.php?contacts" class="text-white">Contactos</a>
                         <br>
-                        <a href="./../public/about.php" class="text-white">Acerca</a>
+                        <a href="./../public/about.php?about" class="text-white">Acerca</a>
                     </ul>
                 </div>
                 <div class="mt-4 col-md-4">
