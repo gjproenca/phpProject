@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2018 at 12:24 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jul 25, 2018 at 01:18 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -307,9 +307,9 @@ CREATE TABLE `messagefrontend` (
 
 CREATE TABLE `messagepublic` (
   `MessageId` int(11) NOT NULL,
-  `Name` int(100) NOT NULL,
+  `Name` varchar(50) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Subject` int(50) NOT NULL,
+  `Subject` varchar(50) NOT NULL,
   `Message` varchar(300) NOT NULL,
   `Active` bit(1) NOT NULL DEFAULT b'1',
   `CreationDate` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
