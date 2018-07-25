@@ -190,7 +190,7 @@ if (isset($_POST['inputSearchEmail'])) {
                                     <?php echo $rowTable['Email'] ?>
                                 </td>
                                 <td>
-                                    <a href="./index-edit.php?userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
+                                    <a href="./index-edit.php?index&userId=<?php echo $rowTable['UserId'] ?>" class="btn btn-warning">Editar</a>
                                 </td>
                             </tr>
                             <?php endwhile;?>

@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($resultAdmin == 1) {
             if ($resultActive == 1) {
                 $_SESSION['adminId'] = $resultUserId;
-                header('Location: ./../backend/index.php');
+                header('Location: ./../backend/index.php?index');
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                     Conta de administrador não ativa</div>';
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             if ($resultActive == 1) {
                 $_SESSION['userId'] = $resultUserId;
-                header('Location: ./../frontend/index.php');
+                header('Location: ./../frontend/index.php?index');
             } else {
                 echo '<div class="alert alert-danger mb-0 rounded-0 text-center" role="alert">
                     Conta de utilizador não ativa</div>';
